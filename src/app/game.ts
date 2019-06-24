@@ -21,6 +21,8 @@ export class Game{
     rob: number
 
     constructor(){
+      this.board = [];
+      this.players = [];
       this.boardSetup();
       for(let i = 0; i < 4; i++){
         this.players.push({
@@ -51,8 +53,8 @@ export class Game{
 
     boardSetup(){
       let pieces = [];
-      for(let i = 0; i < 5; i++){
-        if(i !== 4){
+      for(let i = 0; i < 4; i++){
+        if(i !== 3){
           pieces.push("brick");
           pieces.push("ore");
         }
@@ -67,15 +69,21 @@ export class Game{
       pieces = this.shuffle(pieces);
 
       let nums = [2,12];
+
       for(let i = 3; i < 12;i++){
-        nums.push(i);
-        nums.push(i);
+        if(i !== 7){
+          nums.push(i);
+          nums.push(i);
+        }
       }
+      
       nums = this.shuffle(nums);
+      let desert = 0;
       for(let i = 0; i < pieces.length;i++){
         if(pieces[i] !== "desert"){
-          this.board.push({resource: pieces[i], roll: nums[i]})
+          this.board.push({resource: pieces[i], roll: nums[i-desert]})
         }else{
+          desert++;
           this.board.push({resource: pieces[i], roll: 0})
         }
       }
@@ -97,7 +105,7 @@ export class Game{
           this.players[this.turn].resources[resource]++;
         });
       }
-    
+
       if(this.turn === 3) {
         this.preturn--;
       }
