@@ -67,27 +67,27 @@ ol.odd {
 }
 
 .hex.desert {
-  background-color: #f0f07f;
+  background-color: #b695d6;
 }
 
 .hex.sheep {
-  background-color: green;
+  background-color: #70a85e;
 }
 
 .hex.ore {
-  background-color: gray;
+  background-color: #515151;
 }
 
 .hex.wheat {
-  background-color: yellow;
+  background-color: #e0b13c;
 }
 
 .hex.brick {
-  background-color: red;
+  background-color: #722809;
 }
 
 .hex.wood {
-  background-color: brown;
+  background-color: #055624;
 }
 
 /* end types of hexs */
