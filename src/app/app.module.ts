@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { BoardGridComponent } from './board-grid/board-grid.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoardGridComponent
   ],
   imports: [
     BrowserModule
