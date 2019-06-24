@@ -1,5 +1,5 @@
 export class Game{
-  dev: {name: string, effect: string};
+  dev: {name: string, effect: string}[];
   players: {
     name: string,
     resources: {
@@ -8,7 +8,7 @@ export class Game{
       ore: number,
       brick: number,
       wood: number},
-      dev: {}[],
+      dev: {name: string, effect: string}[],
       vp: number,
       road: number,
       army: number,
@@ -24,6 +24,10 @@ export class Game{
       this.board = [];
       this.players = [];
       this.boardSetup();
+      this.dev = [];
+      this.devCards();
+      this.shuffle(this.dev);
+
       for(let i = 0; i < 4; i++){
         this.players.push({
           name: "", resources:{ wheat: 0, sheep: 0, ore: 0, brick: 0, wood: 0}, dev: [], vp: 0, road: 0, army: 0, build: []
@@ -37,6 +41,41 @@ export class Game{
       this.turn = 0;
     }
 
+    devCards() {
+      for(let i = 0; i < 14; i++) {
+        this.dev.push({
+          name: "knight", effect: "Move the robber. Steal 1 resource card from the owner of an adjacent settlement or city."
+        });
+      }
+      for(let i = 0; i < 5; i++) {
+        this.dev.push({
+          name: "victory", effect: "1 victory point."
+        });
+      }
+      for(let i = 0; i < 2; i++) {
+        this.dev.push({
+          name: "road building", effect: "Place 2 new roads as if you had just built them."
+        });
+        this.dev.push({
+          name: "year of plenty", effect: "Take any 2 resources from the bank. Add them to your hand. They can be 2 of the same resource or 2 different resources."
+        });
+        this.dev.push({
+          name: "monopoly", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
+        });
+      }
+    }
+
+    getDev() {
+      if(this.dev[0].name === "victory") {
+        this.dev.pop();
+        this.players[this.turn].vp++;
+      } else {
+        this.players[this.turn].dev.push(this.dev.pop());
+      }
+    }
+    roll() {
+      return Math.floor(Math.random()* 6) + 1;
+    }
 
     shuffle(deck) {
       let i = 0;
