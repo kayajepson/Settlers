@@ -25,7 +25,7 @@ ol.odd {
   margin: 25px auto;
   width: 75px;
   height: 127.5px;
-  border-radius: 5px;
+  border-radius: 2px;
   background: #ccc;
   transform: rotate(-90deg);
   display: inline-block;
@@ -251,7 +251,7 @@ ol.odd {
   height: 45px;
   width: 45px;
   border-radius: 45px;
-  border: 2px solid black;
+  border: 1px solid black;
   top: 42px;
   left: 18px;
   transform: rotate(90deg);
