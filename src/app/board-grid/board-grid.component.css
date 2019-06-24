@@ -1,7 +1,9 @@
 /* ----------------------------------------- */
 .container {
+  margin: 0 auto;
   width: 1200px;
-  border: 1px solid black;
+  /* background-color: #2fa4ed; */
+  /* border: 1px solid black; */
   line-height: 1.3;
 }
 
@@ -61,10 +63,10 @@ ol.odd {
 }
 
 .hex.water {
-  background-color: #8e8ee7;
+  background-color: #186fa5;
 }
 
-.hex.sand {
+.hex.desert {
   background-color: #f0f07f;
 }
 
@@ -72,7 +74,7 @@ ol.odd {
   background-color: green;
 }
 
-.hex.coal {
+.hex.ore {
   background-color: gray;
 }
 
@@ -220,8 +222,8 @@ ol.odd {
   content: "wood";
 }
 
-.harbor.coal::after {
-  content: "coal";
+.harbor.ore::after {
+  content: "ore";
 }
 
 .harbor.sheep::after {
