@@ -69,18 +69,21 @@ export class Game{
       pieces = this.shuffle(pieces);
 
       let nums = [2,12];
+
       for(let i = 3; i < 12;i++){
         if(i !== 7){
           nums.push(i);
           nums.push(i);
         }
-
       }
+      
       nums = this.shuffle(nums);
+      let desert = 0;
       for(let i = 0; i < pieces.length;i++){
         if(pieces[i] !== "desert"){
-          this.board.push({resource: pieces[i], roll: nums[i]})
+          this.board.push({resource: pieces[i], roll: nums[i-desert]})
         }else{
+          desert++;
           this.board.push({resource: pieces[i], roll: 0})
         }
       }
