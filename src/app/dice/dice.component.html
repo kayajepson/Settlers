@@ -1,0 +1,2 @@
+<div class="dice"></div>
+<img *ngFor='let die of rolls' draggable='true' (click)='diceRoll()' (dragend)='diceRoll()' src='../assets/img/{{die}}.png'>

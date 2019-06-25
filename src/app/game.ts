@@ -74,8 +74,13 @@ export class Game{
       }
     }
     roll() {
-      return Math.floor(Math.random()* 6) + 1;
+      let rolls = [];
+      rolls.push(Math.floor(Math.random()* 6) + 1);
+      rolls.push(Math.floor(Math.random()* 6) + 1);
+      return rolls;
     }
+
+
 
     shuffle(deck) {
       let i = 0;
@@ -115,7 +120,7 @@ export class Game{
           nums.push(i);
         }
       }
-      
+
       nums = this.shuffle(nums);
       let desert = 0;
       for(let i = 0; i < pieces.length;i++){
