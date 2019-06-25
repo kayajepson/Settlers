@@ -73,6 +73,7 @@ export class Game{
       if(b.roll === roll)
         locations.push(that.board.indexOf(b));
       })
+      locations.filter(((x)=> x != this.rob));
       this.players.forEach(function(p){
         p.build.forEach(function(pp){
             locations.forEach(function(l){
@@ -124,7 +125,30 @@ export class Game{
       let rolls = [];
       rolls.push(Math.floor(Math.random()* 6) + 1);
       rolls.push(Math.floor(Math.random()* 6) + 1);
-      this.giveResources(rolls[0]+rolls[1]);
+      if(rolls[0]+rolls[1] === 7){
+        this.players.forEach(function(pl){
+          let total = Object.values(pl.resources).reduce(function(a,b){
+            return a + b;
+          })
+          if(total > 7){
+            while(Object.values(pl.resources).reduce(function(a,b){
+              return a + b;
+            }) > (Math.floor(total/2))){
+              let resource = Object.keys(pl.resources);
+              //console.log(pl.resources[resource[Math.floor(Math.random()*(resource.length-1))]])
+              let rando = Math.floor(Math.random()*(resource.length-1));
+              if(pl.resources[resource[rando]] > 0){
+                pl.resources[resource[rando]]--;
+              }
+            }
+          }
+        })
+        alert("Move the robber!");
+        this.rob = -1;
+        // this.robert();
+      }else{
+        this.giveResources(rolls[0]+rolls[1]);
+      }
       console.log(this);
       return rolls;
     }
@@ -228,6 +252,10 @@ export class Game{
         this.turn++;
       }
     }
+  }
+
+  robert(num) {
+    this.rob = num;
   }
 
 
