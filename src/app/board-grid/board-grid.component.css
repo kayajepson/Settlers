@@ -1,4 +1,5 @@
 /* ----------------------------------------- */
+
 .container {
   margin: 0 auto;
   width: 1200px;
@@ -96,7 +97,7 @@ ol.odd {
 /* begin roads */
 .road {
   border-radius: 3px;
-  background-color: red;
+  background-color: #ffffff00;
   position: absolute;
   width: 9px;
   height: 58px;
@@ -106,11 +107,11 @@ ol.odd {
 .road.target {
   background-color: transparent;
   position: absolute;
-  border: 2px dashed black;
+  /* border: 2px dashed black; */
 }
 
 .road.target:hover {
-  background-color: yellow;
+  background-color: #ffffff6b;
 }
 
 .road.l {
