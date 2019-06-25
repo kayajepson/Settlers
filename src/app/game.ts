@@ -70,20 +70,20 @@ export class Game{
       let locations = [];
       let that = this;
       this.board.forEach(function(b){
-      if(b.roll === roll)
+        if(b.roll === roll)
         locations.push(that.board.indexOf(b));
       })
       locations.filter(((x)=> x != this.rob));
       this.players.forEach(function(p){
         p.build.forEach(function(pp){
-            locations.forEach(function(l){
+          locations.forEach(function(l){
 
-              console.log(pp.position);
-              console.log(that.adjacents[l]);
-              if(that.adjacents[l].includes(pp.position)===true){
+            console.log(pp.position);
+            console.log(that.adjacents[l]);
+            if(that.adjacents[l].includes(pp.position)===true){
               p.resources[that.board[l].resource]++;
-              }
-            })
+            }
+          })
         })
       })
     }
@@ -147,76 +147,149 @@ export class Game{
         this.rob = -1;
         // this.robert();
       }else{
-        this.giveResources(rolls[0]+rolls[1]);
+      this.giveResources(rolls[0]+rolls[1]);
+    }
+    console.log(this);
+    return rolls;
+  }
+
+
+
+  shuffle(deck) {
+    let i = 0;
+    let j = 0;
+    let temp = null;
+    for (i = deck.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = temp;
+    }
+    return deck;
+  }
+
+  boardSetup(){
+    let pieces = [];
+    for(let i = 0; i < 4; i++){
+      if(i !== 3){
+        pieces.push("brick");
+        pieces.push("ore");
       }
-      console.log(this);
-      return rolls;
+      if(i === 0){
+        pieces.push("desert");
+      }
+      pieces.push("wood");
+      pieces.push("wheat");
+      pieces.push("sheep");
     }
 
+    pieces = this.shuffle(pieces);
 
+    let nums = [2,12];
 
-    shuffle(deck) {
-      let i = 0;
-      let j = 0;
-      let temp = null;
-      for (i = deck.length - 1; i > 0; i -= 1) {
-        j = Math.floor(Math.random() * (i + 1));
-        temp = deck[i];
-        deck[i] = deck[j];
-        deck[j] = temp;
-      }
-      return deck;
-    }
-
-    boardSetup(){
-      let pieces = [];
-      for(let i = 0; i < 4; i++){
-        if(i !== 3){
-          pieces.push("brick");
-          pieces.push("ore");
-        }
-        if(i === 0){
-          pieces.push("desert");
-        }
-        pieces.push("wood");
-        pieces.push("wheat");
-        pieces.push("sheep");
-      }
-
-      pieces = this.shuffle(pieces);
-
-      let nums = [2,12];
-
-      for(let i = 3; i < 12;i++){
-        if(i !== 7){
-          nums.push(i);
-          nums.push(i);
-        }
-      }
-
-      console.log(nums);
-
-      nums = this.shuffle(nums);
-      let desert = 0;
-      for(let i = 0; i < pieces.length;i++){
-        if(pieces[i] !== "desert"){
-          this.board.push({resource: pieces[i], roll: nums[i-desert]})
-        }else{
-          desert=1;;
-          this.board.push({resource: pieces[i], roll: 0})
-        }
+    for(let i = 3; i < 12;i++){
+      if(i !== 7){
+        nums.push(i);
+        nums.push(i);
       }
     }
 
-    checkNeighbors(number){
-      return true;
-    }
+    console.log(nums);
 
-    buildSettlement(number){
-      if(this.preturn > 0){
-        this.preTurn(number)
+    nums = this.shuffle(nums);
+    let desert = 0;
+    for(let i = 0; i < pieces.length;i++){
+      if(pieces[i] !== "desert"){
+        this.board.push({resource: pieces[i], roll: nums[i-desert]})
       }else{
-        if(this.players[this.turn].resources.wood >= 1 && this.players[this.turn].resources.wheat >=1 && this.players[this.turn].resources.brick >=1 && this.players[this.turn].resources.sheep >=1 ){
+        desert=1;;
+        this.board.push({resource: pieces[i], roll: 0})
+      }
+    }
+  }
+
+  checkNeighbors(number){
+    let allBuildings = [];
+    this.players.forEach(function(pp){
+      pp.build.forEach(function(b){
+        allBuildings.push(b.position);
+      })
+    })
+    switch(number){
+      case( number < 3):
+      if(number === 0){
+        return allBuildings.includes(3) || allBuildings.includes(4);
+      }else if(number === 2){
+        return allBuildings.includes(5) || allBuildings.includes(6);
+      }else{
+        return allBuildings.includes(4) || allBuildings.includes(5);
+      }
+      case( number < 7):
+      if(number === 3){
+        return allBuildings.includes(7) || allBuildings.includes(0);
+      }else if(number === 6){
+        return allBuildings.includes(2) || allBuildings.includes(10);
+      }else{
+        return allBuildings.includes(number-4) || allBuildings.includes(number-3) || allBuildings.includes(number+4)
+      }
+      case(number < 11):
+      if(number === 11){
+        return allBuildings.includes(7) || allBuildings.includes(16);
+      }else if(number === 15){
+        return allBuildings.includes(10) || allBuildings.includes(20);
+      }
+      return allBuildings.includes(number-4) || allBuildings.includes(number+5) || allBuildings.includes(number+4)
+      case(number < 16):
+      return allBuildings.includes(number-5) || allBuildings.includes(number+5) || allBuildings.includes(number+6)
+      case(number < 21):
+      return allBuildings.includes(number-5) || allBuildings.includes(number+5) || allBuildings.includes(number+6)
+      case(number < 27):
+      if(number === 21){
+        return allBuildings.includes(27) || allBuildings.includes(16);
+      }else if(number === 26){
+        return allBuildings.includes(20) || allBuildings.includes(32);
+      }
+      return allBuildings.includes(number-6) || allBuildings.includes(number-5) || allBuildings.includes(number+6);
+      case(number < 33):
+      if(number === 27){
+        return allBuildings.includes(21) || allBuildings.includes(33);
+      }else if(number === 32){
+        return allBuildings.includes(26) || allBuildings.includes(37);
+      }
+      return allBuildings.includes(number-6) || allBuildings.includes(number+5) || allBuildings.includes(number+6);
+      case(number < 38):
+      return allBuildings.includes(number-6) || allBuildings.includes(number-5) || allBuildings.includes(number+6);
+      case(number < 43):
+      if(number === 38){
+        return allBuildings.includes(43) || allBuildings.includes(33);
+      }else if(number === 42){
+        return allBuildings.includes(46) || allBuildings.includes(37);
+      }
+      return allBuildings.includes(number+4) || allBuildings.includes(number-5) || allBuildings.includes(number+5);
+      case(number < 47):
+      return allBuildings.includes(number-4) || allBuildings.includes(number-5) || allBuildings.includes(number+4);
+      case(number < 51):
+      if(number === 47){
+        return allBuildings.includes(43) || allBuildings.includes(51);
+      }else if(number === 46){
+        return allBuildings.includes(41) || allBuildings.includes(53);
+      }
+      return allBuildings.includes(number+4) || allBuildings.includes(number-4) || allBuildings.includes(number+3);
+      case(number < 54):
+      if(number === 51){
+        return allBuildings.includes(47) || allBuildings.includes(48);
+      }else if(number === 53){
+        return allBuildings.includes(49) || allBuildings.includes(50);
+      }
+      return allBuildings.includes(48) || allBuildings.includes(49);
+    }
+  }
+
+  buildSettlement(number){
+    if(this.preturn > 0){
+      this.preTurn(number)
+    }else{
+      if(this.players[this.turn].resources.wood >= 1 && this.players[this.turn].resources.wheat >=1 && this.players[this.turn].resources.brick >=1 && this.players[this.turn].resources.sheep >=1 ){
         this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
         let keys = Object.keys(this.players[this.turn].resources);
         keys.forEach(function(k){
@@ -224,39 +297,39 @@ export class Game{
             this.players[this.turn].resources[k]--;
           }
         })
-        }
-        return true;
       }
-      return false;
+      return true;
     }
-
-    //Eventually take in more info
-    preTurn(number) {
-    if (this.checkNeighbors(number) === true) {
-      //let currentPlayer = this.players[this.turn]
-      this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
-
-      //distribute resources
-      if(this.preturn === 1){
-        // resources.forEach(function(resource) {
-        //   this.players[this.turn].resources[resource]++;
-        // });
-      }
-
-      if(this.turn === 3) {
-        this.preturn--;
-      }
-      if(this.preturn === 1) {
-        this.turn--;
-      } else {
-        this.turn++;
-      }
-    }
+    return false;
   }
 
-  robert(num) {
-    this.rob = num;
+  //Eventually take in more info
+  preTurn(number) {
+  if (this.checkNeighbors(number) === true) {
+    //let currentPlayer = this.players[this.turn]
+    this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
+
+    //distribute resources
+    if(this.preturn === 1){
+    // resources.forEach(function(resource) {
+    //   this.players[this.turn].resources[resource]++;
+    // });
   }
+
+  if(this.turn === 3) {
+    this.preturn--;
+  }
+  if(this.preturn === 1) {
+    this.turn--;
+  } else {
+    this.turn++;
+  }
+}
+}
+
+robert(num) {
+  this.rob = num;
+}
 
 
 
