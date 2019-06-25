@@ -188,17 +188,35 @@ export class Game{
       return true;
     }
 
+    buildSettlement(number){
+      if(this.preturn > 0){
+        this.preTurn(number)
+      }else{
+        if(this.players[this.turn].resources.wood >= 1 && this.players[this.turn].resources.wheat >=1 && this.players[this.turn].resources.brick >=1 && this.players[this.turn].resources.sheep >=1 ){
+        this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
+        let keys = Object.keys(this.players[this.turn].resources);
+        keys.forEach(function(k){
+          if(k != 'ore'){
+            this.players[this.turn].resources[k]--;
+          }
+        })
+        }
+        return true;
+      }
+      return false;
+    }
+
     //Eventually take in more info
-    preTurn(number, resources) {
+    preTurn(number) {
     if (this.checkNeighbors(number) === true) {
       //let currentPlayer = this.players[this.turn]
-      this.players[this.turn].build.push({name: 'settlement', position: number, resources: resources});
+      this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
 
       //distribute resources
       if(this.preturn === 1){
-        resources.forEach(function(resource) {
-          this.players[this.turn].resources[resource]++;
-        });
+        // resources.forEach(function(resource) {
+        //   this.players[this.turn].resources[resource]++;
+        // });
       }
 
       if(this.turn === 3) {
