@@ -55,6 +55,11 @@ ol.odd {
   transform: rotate(-60deg);
 }
 
+.dice {
+  padding-left: 9%;
+}
+
+
 /* end base hex */
 /* ----------------------------------------- */
 /* ----------------------------------------- */
@@ -481,4 +486,9 @@ ol.odd {
 
 .hex .house.blue {
   background-color: #0000ff;
+}
+
+.cards {
+  margin: 0 auto;
+  width: 200px;
 }
