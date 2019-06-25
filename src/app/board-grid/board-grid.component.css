@@ -97,9 +97,7 @@ ol.odd {
 /* begin roads */
 .road {
   border-radius: 3px;
-  /* background-color: #ffffff00; */
-  background-color: #000000;
-
+  background-color: #ffffff00;
   position: absolute;
   width: 9px;
   height: 58px;
@@ -120,14 +118,6 @@ ol.odd {
   right: 33px;
   bottom: 104px;
   transform: rotate(90deg);
-}
-
-.road.r {
-  color: red;
-  right: 33px;
-  bottom: 104px;
-  transform: rotate(90deg);
-  z-index: 10;
 }
 
 .road.tl {
