@@ -18,7 +18,8 @@ export class Game{
     preturn: number;
     turn: number;
     board: {resource: string, roll: number}[];
-    rob: number
+    rob: number;
+    adjacents: number[][];
 
     constructor(){
       this.board = [];
@@ -39,6 +40,30 @@ export class Game{
       this.players[3].name = "orange";
       this.preturn = 2;
       this.turn = 0;
+      this.adjacents = [];
+      this.fillAdjacents();
+    }
+
+    fillAdjacents(){
+      this.adjacents.push([0,3,4,7,8,12]);
+      this.adjacents.push([1,4,5,8,9,13]);
+      this.adjacents.push([2,5,6,9,10,14]);
+      this.adjacents.push([7,11,12,16,17,22]);
+      this.adjacents.push([8,12,13,17,18,23]);
+      this.adjacents.push([9,13,14,18,19,24]);
+      this.adjacents.push([10,14,15,19,20,25]);
+      this.adjacents.push([16,21,22,27,28,33]);
+      this.adjacents.push([17,22,23,28,29,34]);
+      this.adjacents.push([18,23,24,29,30,35]);
+      this.adjacents.push([19,24,25,30,31,36]);
+      this.adjacents.push([20,25,26,31,32,37]);
+      this.adjacents.push([28,33,34,38,39,43]);
+      this.adjacents.push([29,34,35,39,40,44]);
+      this.adjacents.push([30,35,36,40,41,45]);
+      this.adjacents.push([31,36,37,41,42,46]);
+      this.adjacents.push([39,43,44,47,48,51]);
+      this.adjacents.push([40,44,45,48,49,52]);
+      this.adjacents.push([41,45,46,49,50,53]);
     }
 
     devCards() {
@@ -73,6 +98,7 @@ export class Game{
         this.players[this.turn].dev.push(this.dev.pop());
       }
     }
+
     roll() {
       let rolls = [];
       rolls.push(Math.floor(Math.random()* 6) + 1);
