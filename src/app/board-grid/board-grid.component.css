@@ -390,10 +390,10 @@ ol.odd {
 /* ----------------------------------------- */
 /* begin settlements */
 .hex .settlement {
-  border-top: 1px solid black;
+  /* border-top: 1px solid black;
   border-left: 1px solid black;
   border-bottom: 1px solid black;
-  border-right: 1px solid black;
+  border-right: 1px solid black; */
 
   height: 20px;
   width: 20px;
@@ -419,11 +419,11 @@ ol.odd {
 } */
 
 .hex .settlement.target {
-  border: 2px dashed black;
 }
 
 .hex .settlement.target:hover {
-  background-color: yellow;
+  border: 1px dashed black;
+  background-color: #ffffff5e;
 }
 
 .hex .settlement.target::before {
@@ -445,25 +445,26 @@ ol.odd {
 /* ----------------------------------------- */
 /* begin cities */
 .hex .city {
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-  border-bottom: 2px solid black;
-  height: 20px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  height: 30px;
   width: 30px;
   position: absolute;
   z-index: 800;
 }
 
-.hex .city::before {
+/* .hex .city::before {
   width: 0;
   height: 0;
   border-style: solid;
   transform: rotate(90deg);
   content: "";
   position: absolute;
-}
+} */
 
-.hex .city::after {
+/* .hex .city::after {
   content: "";
   width: 20px;
   height: 40px;
@@ -472,14 +473,14 @@ ol.odd {
   position: absolute;
   border: 2px solid black;
   background-color: inherit;
-}
+} */
 
-.hex .city::before {
+/* .hex .city::before {
   top: 4px;
   left: 24px;
   border-width: 0 12px 12px 12px;
   border-color: transparent transparent #000000 transparent;
-}
+} */
 
 .hex .city.t {
   top: 55px;
