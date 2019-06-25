@@ -66,6 +66,27 @@ export class Game{
       this.adjacents.push([41,45,46,49,50,53]);
     }
 
+    giveResources(roll){
+      let locations = [];
+      let that = this;
+      this.board.forEach(function(b){
+      if(b.roll === roll)
+        locations.push(that.board.indexOf(b));
+      })
+      this.players.forEach(function(p){
+        p.build.forEach(function(pp){
+            locations.forEach(function(l){
+
+              console.log(pp.position);
+              console.log(that.adjacents[l]);
+              if(that.adjacents[l].includes(pp.position)===true){
+              p.resources[that.board[l].resource]++;
+              }
+            })
+        })
+      })
+    }
+
     devCards() {
       for(let i = 0; i < 14; i++) {
         this.dev.push({
@@ -103,6 +124,8 @@ export class Game{
       let rolls = [];
       rolls.push(Math.floor(Math.random()* 6) + 1);
       rolls.push(Math.floor(Math.random()* 6) + 1);
+      this.giveResources(rolls[0]+rolls[1]);
+      console.log(this);
       return rolls;
     }
 
@@ -147,13 +170,15 @@ export class Game{
         }
       }
 
+      console.log(nums);
+
       nums = this.shuffle(nums);
       let desert = 0;
       for(let i = 0; i < pieces.length;i++){
         if(pieces[i] !== "desert"){
           this.board.push({resource: pieces[i], roll: nums[i-desert]})
         }else{
-          desert++;
+          desert=1;;
           this.board.push({resource: pieces[i], roll: 0})
         }
       }
@@ -163,17 +188,35 @@ export class Game{
       return true;
     }
 
+    buildSettlement(number){
+      if(this.preturn > 0){
+        this.preTurn(number)
+      }else{
+        if(this.players[this.turn].resources.wood >= 1 && this.players[this.turn].resources.wheat >=1 && this.players[this.turn].resources.brick >=1 && this.players[this.turn].resources.sheep >=1 ){
+        this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
+        let keys = Object.keys(this.players[this.turn].resources);
+        keys.forEach(function(k){
+          if(k != 'ore'){
+            this.players[this.turn].resources[k]--;
+          }
+        })
+        }
+        return true;
+      }
+      return false;
+    }
+
     //Eventually take in more info
-    preTurn(number, resources) {
+    preTurn(number) {
     if (this.checkNeighbors(number) === true) {
       //let currentPlayer = this.players[this.turn]
-      this.players[this.turn].build.push({name: 'settlement', position: number, resources: resources});
+      this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
 
       //distribute resources
       if(this.preturn === 1){
-        resources.forEach(function(resource) {
-          this.players[this.turn].resources[resource]++;
-        });
+        // resources.forEach(function(resource) {
+        //   this.players[this.turn].resources[resource]++;
+        // });
       }
 
       if(this.turn === 3) {
