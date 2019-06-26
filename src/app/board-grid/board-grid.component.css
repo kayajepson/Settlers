@@ -549,16 +549,24 @@ ol.odd {
 }
 
 .build-card {
-  background-color: red;
   float: left;
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 15px;
+  left: 150px;
 }
 
-/* .player-info {
-  float: right;
+.build-card-img {
+  width: 300px;
+  border-radius: 25px;
+}
+
+.player-info {
+  float: left;
   position: absolute;
-  top: 8px;
-  right: 16px;
-} */
+  top: 400px;
+  left: 150px;
+  font-size: 30px;
+  /* background-color: #ffdead; */
+  width: 8em;
+  padding: 10px;
+}
