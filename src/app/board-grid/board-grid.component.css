@@ -234,34 +234,50 @@ ol.odd {
 
 .harbor.two-one::before {
   content: "2:1";
+  font-size: 20px;
+  color: white;
 }
 
 .harbor.three-one::before {
   content: "3:1";
+  font-size: 20px;
+  color: white;
 }
 
 .harbor.any::after {
-  content: "any";
+  content: "ANY";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.wood::after {
-  content: "wood";
+  content: "WOOD";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.ore::after {
-  content: "ore";
+  content: "ORE";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.sheep::after {
-  content: "sheep";
+  content: "SHEEP";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.brick::after {
-  content: "brick";
+  content: "BRICK";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.wheat::after {
-  content: "wheat";
+  content: "WHEAT";
+  font-size: 15px;
+  color: white;
 }
 
 /* end harbors */
@@ -298,8 +314,11 @@ ol.odd {
 }
 
 .hex #robber {
-  opacity: .2;
+  opacity: .4;
   border: 2px dotted;
+}
+#robber::after {
+  content: "R";
 }
 
 .hex .number.two::before {
