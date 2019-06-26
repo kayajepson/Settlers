@@ -298,7 +298,7 @@ ol.odd {
   top: 42px;
   left: 18px;
   transform: rotate(90deg);
-  background-color: #ffdead;
+  background-color: #f9e4c6;
 }
 
 .hex .number::after {
@@ -569,4 +569,19 @@ ol.odd {
   /* background-color: #ffdead; */
   width: 8em;
   padding: 10px;
+}
+
+.kaya {
+  float: right;
+  top: 15px;
+  position: absolute;
+  z-index: -10;
+
+}
+
+.rules {
+  position: absolute;
+  float: right;
+  right: 100px;
+  top: 15px;
 }

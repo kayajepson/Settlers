@@ -295,20 +295,23 @@
     <div class="build-card">
       <a><img src="../../assets/img/buildWhite.png" alt="placeholder" class="build-card-img"></a>
     </div>
+    <div class="rules">
+      <app-rules></app-rules>
+    </div>
 
     <div class="dice">
       <app-dice></app-dice>
     </div>
 
-    <div class="rules">
-      <app-rules></app-rules>
-    </div>
+
+
     <div class="resource-cards">
-      <a><img src="../../assets/img/wheat.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/sheep.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/brick.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/ore.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/wood.png" alt="placeholder" class="cards"></a>
+      <a><img src="../../assets/img/wheat.png" alt="placeholder" class="cards"><span>{{resources.wheat}}</span></a>
+
+      <a><img src="../../assets/img/sheep.png" alt="placeholder" class="cards"><span>{{resources.sheep}}</span></a>
+      <a><img src="../../assets/img/brick.png" alt="placeholder" class="cards"><span>{{resources.brick}}</span></a>
+      <a><img src="../../assets/img/ore.png" alt="placeholder" class="cards"><span>{{resources.ore}}</span></a>
+      <a><img src="../../assets/img/wood.png" alt="placeholder" class="cards"><span>{{resources.wood}}</span></a>
     </div>
 
   </div>
