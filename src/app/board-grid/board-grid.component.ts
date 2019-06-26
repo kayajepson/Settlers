@@ -71,10 +71,19 @@ road: boolean;
   buildRoad(roadOne: number, roadTwo: number){
     if(this.road === true){
       if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
+        let connected = false;
+        let otherEnds1 = document.getElementsByClassName("road " + GAME.players[GAME.turn].name);
+        for(let i = 0; i < otherEnds1.length; i++){
+          console.log("HERE?");
+          if(otherEnds1[i].classList.contains("r" +roadOne) === true || otherEnds1[i].classList.contains("r" + roadTwo) === true)
+          {
+            connected = true;
+          }
+        }
         if(GAME.players[GAME.turn].build.filter(function(x){
           return (x.position === roadOne || x.position === roadTwo);
-        }).length > 0){
-          console.log("HERE");
+        }).length > 0 || connected === true){
+          //console.log(otherEnds1);
           document.querySelector(".r"+roadOne+".r"+roadTwo).classList.add(GAME.players[GAME.turn].name);
           // document.querySelector(".r"+roadOne+".r"+roadTwo).classList.remove("road");
           GAME.players[GAME.turn].resources.wood--;
@@ -100,4 +109,3 @@ road: boolean;
     }
 
   }
-}
