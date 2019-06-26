@@ -18,11 +18,11 @@ dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7:
 robber: number;
 settlement: boolean;
 road: boolean;
-resources: {wood: number,
-wheat: number,
-brick: number,
-ore: number,
-sheep: number}
+// resources: {wood: number,
+// wheat: number,
+// brick: number,
+// ore: number,
+// sheep: number}[]
 game: Game;
 
 
@@ -60,7 +60,6 @@ game: Game;
 
     this.settlement = true;
     this.road = false;
-    this.resources = GAME.players[GAME.turn].resources;
 
   }
   build(num: number){
@@ -101,6 +100,7 @@ game: Game;
             GAME.turn--;
             if(GAME.turn === -1){
               GAME.preturn --;
+              GAME.turn = 0;
             }
           } else {
             GAME.turn++;
@@ -118,4 +118,3 @@ game: Game;
     }
 
   }
-

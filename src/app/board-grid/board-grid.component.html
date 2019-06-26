@@ -161,7 +161,7 @@
     <!-- five -->
     <ol class="even">
       <li class='hex water'>
-        <div class='settlement target t'></div>
+        <div class='settlement target t' (click)="build(27)" id="s27"></div>
         <div class='road target tr r27 r33'(click)="buildRoad(27,33)"></div>
 
       </li>
@@ -306,11 +306,11 @@
 
 
     <div class="resource-cards">
-      <a><img src="../../assets/img/wheat.png" alt="wheat" class="cards"><span>{{resources.wheat}}</span></a>
-      <a><img src="../../assets/img/sheep.png" alt="sheep" class="cards"><span>{{resources.sheep}}</span></a>
-      <a><img src="../../assets/img/brick.png" alt="brick" class="cards"><span>{{resources.brick}}</span></a>
-      <a><img src="../../assets/img/ore.png" alt="ore" class="cards"><span>{{resources.ore}}</span></a>
-      <a><img src="../../assets/img/wood.png" alt="wood" class="cards"><span>{{resources.wood}}</span></a>
+      <a><img src="../../assets/img/wheat.png" alt="wheat" class="cards"><span>{{game.players[game.turn].resources.wheat}}</span></a>
+      <a><img src="../../assets/img/sheep.png" alt="sheep" class="cards"><span>{{game.players[game.turn].resources.sheep}}</span></a>
+      <a><img src="../../assets/img/brick.png" alt="brick" class="cards"><span>{{game.players[game.turn].resources.brick}}</span></a>
+      <a><img src="../../assets/img/ore.png" alt="ore" class="cards"><span>{{game.players[game.turn].resources.ore}}</span></a>
+      <a><img src="../../assets/img/wood.png" alt="wood" class="cards"><span>{{game.players[game.turn].resources.wood}}</span></a>
     </div>
 
     <div class="development-cards">
