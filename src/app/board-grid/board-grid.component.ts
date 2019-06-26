@@ -15,7 +15,8 @@ row4: {resource: string, roll:number}[];
 row5: {resource: string, roll:number}[];
 dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8: string, 9: string, 10: string, 11: string, 12: string };
 robber: number;
-
+settlement: boolean;
+road: boolean;
   constructor() { }
 
   ngOnInit() {
@@ -29,7 +30,7 @@ robber: number;
         break;
       }
     }
-    
+
     console.log(rob);
   this.robber = rob;
   document.querySelector("#h"+(this.robber+1))
@@ -48,15 +49,55 @@ robber: number;
     this.row4 = GAME.board.slice(12,16);
 
     this.row5 = GAME.board.slice(16);
+
+
+    this.settlement = true;
+    this.road = false;
   }
   build(num: number){
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
     console.log(num);
-    if(GAME.checkNeighbors(num) === true){
+    if(GAME.checkNeighbors(num) === true && this.settlement === true){
       document.getElementById("s"+num).classList.add(GAME.players[GAME.turn].name);
       console.log(GAME.players[GAME.turn].name);
       GAME.buildSettlement(num);
       console.log(GAME);
+      this.settlement = false;
+      if(GAME.preturn > 0){
+        this.road = true;
+      }
     }
+  }
+  buildRoad(roadOne: number, roadTwo: number){
+    if(this.road === true){
+      if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
+        if(GAME.players[GAME.turn].build.filter(function(x){
+          return (x.position === roadOne || x.position === roadTwo);
+        }).length > 0){
+          console.log("HERE");
+          document.querySelector(".r"+roadOne+".r"+roadTwo).classList.add(GAME.players[GAME.turn].name);
+          // document.querySelector(".r"+roadOne+".r"+roadTwo).classList.remove("road");
+          GAME.players[GAME.turn].resources.wood--;
+          GAME.players[GAME.turn].resources.brick--;
+          if(GAME.preturn === 1) {
+            GAME.turn--;
+            if(GAME.turn === -1){
+              GAME.preturn --;
+            }
+          } else {
+            GAME.turn++;
+          }
+          if(GAME.turn === 4 && GAME.preturn === 2){
+            GAME.preturn--;
+            GAME.turn--;
+          }
+          if(GAME.preturn > 0){
+            this.settlement = true;
+          }
+        }
+        }
+      }
+    }
+
   }
 }

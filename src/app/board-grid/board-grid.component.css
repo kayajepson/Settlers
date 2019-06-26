@@ -500,6 +500,19 @@ ol.odd {
   background-color: #ff0000;
 }
 
+.red{
+  background-color: #ff0000 !important;
+}
+.white{
+  background-color: #ffffff !important;
+}
+.blue{
+  background-color: #0000ff !important;
+}
+.orange{
+  background-color: #F77400 !important;
+}
+
 .hex .settlement.red {
   background-color: #ff0000;
 }
@@ -509,7 +522,7 @@ ol.odd {
 }
 
 .hex .settlement.orange {
-  background-color: orange;
+  background-color: #F77400;
 }
 
 .hex .city.blue {
