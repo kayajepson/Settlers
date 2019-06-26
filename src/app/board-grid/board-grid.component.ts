@@ -16,12 +16,15 @@ row4: {resource: string, roll:number}[];
 row5: {resource: string, roll:number}[];
 dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8: string, 9: string, 10: string, 11: string, 12: string };
 robber: number;
+settlement: boolean;
+road: boolean;
 resources: {wood: number,
 wheat: number,
 brick: number,
 ore: number,
 sheep: number}
 game: Game;
+
 
   constructor() { }
 
@@ -53,18 +56,66 @@ game: Game;
     this.row4 = GAME.board.slice(12,16);
 
     this.row5 = GAME.board.slice(16);
+
+
+    this.settlement = true;
+    this.road = false;
     this.resources = GAME.players[GAME.turn].resources;
 
   }
   build(num: number){
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
     console.log(num);
-    if(GAME.checkNeighbors(num) === true){
+    if(GAME.checkNeighbors(num) === true && this.settlement === true){
       document.getElementById("s"+num).classList.add(GAME.players[GAME.turn].name);
       console.log(GAME.players[GAME.turn].name);
       GAME.buildSettlement(num);
       console.log(GAME);
+      this.settlement = false;
+      if(GAME.preturn > 0){
+        this.road = true;
+      }
     }
   }
+  buildRoad(roadOne: number, roadTwo: number){
+    if(this.road === true){
+      if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
+        let connected = false;
+        let otherEnds1 = document.getElementsByClassName("road " + GAME.players[GAME.turn].name);
+        for(let i = 0; i < otherEnds1.length; i++){
+          console.log("HERE?");
+          if(otherEnds1[i].classList.contains("r" +roadOne) === true || otherEnds1[i].classList.contains("r" + roadTwo) === true)
+          {
+            connected = true;
+          }
+        }
+        if(GAME.players[GAME.turn].build.filter(function(x){
+          return (x.position === roadOne || x.position === roadTwo);
+        }).length > 0 || connected === true){
+          //console.log(otherEnds1);
+          document.querySelector(".r"+roadOne+".r"+roadTwo).classList.add(GAME.players[GAME.turn].name);
+          // document.querySelector(".r"+roadOne+".r"+roadTwo).classList.remove("road");
+          GAME.players[GAME.turn].resources.wood--;
+          GAME.players[GAME.turn].resources.brick--;
+          if(GAME.preturn === 1) {
+            GAME.turn--;
+            if(GAME.turn === -1){
+              GAME.preturn --;
+            }
+          } else {
+            GAME.turn++;
+          }
+          if(GAME.turn === 4 && GAME.preturn === 2){
+            GAME.preturn--;
+            GAME.turn--;
+          }
+          if(GAME.preturn > 0){
+            this.settlement = true;
+          }
+        }
+        }
+      }
+    }
 
-}
+  }
+

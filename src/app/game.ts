@@ -31,7 +31,7 @@ export class Game{
 
       for(let i = 0; i < 4; i++){
         this.players.push({
-          name: "", resources:{ wheat: 0, sheep: 0, ore: 0, brick: 0, wood: 0}, dev: [], vp: 0, road: 0, army: 0, build: []
+          name: "", resources:{ wheat: 0, sheep: 0, ore: 0, brick: 2, wood: 2}, dev: [], vp: 0, road: 0, army: 0, build: []
         })
       }
       this.players[0].name = "red";
@@ -215,6 +215,9 @@ export class Game{
         allBuildings.push(b.position);
       })
     })
+    if(allBuildings.includes(number) === true){
+      return false;
+    }
       if( number < 3){
         if(number === 0){
           return (!allBuildings.includes(3) && !allBuildings.includes(4));
@@ -335,19 +338,7 @@ export class Game{
     // });
   }
 
-  if(this.preturn === 1) {
-    this.turn--;
-    if(this.turn === 0){
-      this.preturn --;
-    }
-  } else {
-    this.turn++;
-  }
-  if(this.turn === 4 && this.preturn === 2){
-    this.preturn--;
-    this.turn--;
-  }
-}
+
 
 // if((this.turn === 3  && this.preturn === 2)&& this.turn === 0 ) {
 //   this.preturn--;
@@ -355,6 +346,7 @@ export class Game{
 //     this.turn++;
 //   }
 // }
+}
 }
 
 robert(num) {
