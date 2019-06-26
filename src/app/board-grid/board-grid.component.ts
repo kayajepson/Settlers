@@ -66,5 +66,8 @@ game: Game;
       console.log(GAME);
     }
   }
+  dummy(){
+    console.log("hi heather");
+  }
 
 }
