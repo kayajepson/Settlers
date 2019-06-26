@@ -31,6 +31,7 @@
         <div class='road target tl r3 r0'(click)="buildRoad(0,3)"></div>
         <div class='road target l r3 r7'(click)="buildRoad(7,3)"></div>
         <div class='road target tr r0 r4'(click)="buildRoad(0,4)"></div>
+
         <div class='number {{dictionary[row1[0].roll]}}'></div>
       </li>
       <li class='hex {{row1[1].resource}}' id="h2">
@@ -52,6 +53,7 @@
       <li class='hex water'>
         <div class='settlement target tl'(click)="build(6)" id="s6"></div>
         <div class='road target l r6 r10'(click)="buildRoad(6,10)"></div>
+
       </li>
     </ol>
     <!-- three -->
@@ -96,6 +98,7 @@
       <li class='hex water'>
         <div class='settlement target tl'(click)="build(15)" id="s15"></div>
         <div class='road target l r15 r20'(click)="buildRoad(15,20)"></div>
+
         <div class='harbor two-one brick'>
           <!-- <div class='harbor-piece l'></div> -->
         </div>
@@ -122,7 +125,6 @@
         <div class='road target tl r22 r17'(click)="buildRoad(22,17)"></div>
         <div class='road target l r22 r28'(click)="buildRoad(22,28)"></div>
         <div class='road target tr r17 r23'(click)="buildRoad(17,23)"></div>
-
         <div class='number {{dictionary[row3[1].roll]}}'></div>
       </li>
       <li class='hex {{row3[2].resource}}' id="h10">
@@ -291,23 +293,35 @@
     </div>
 
     <div class="build-card">
-      <a><img src="../../assets/img/placeholderCard.png" alt="placeholder" class="cards"></a>
+      <a><img src="../../assets/img/buildWhite.png" alt="placeholder" class="build-card-img"></a>
+    </div>
+    <div class="rules">
+      <app-rules></app-rules>
     </div>
 
     <div class="dice">
       <app-dice></app-dice>
     </div>
 
+
+
     <div class="resource-cards">
-      <a><img src="../../assets/img/placeholderCard.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/placeholderCard.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/placeholderCard.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/placeholderCard.png" alt="placeholder" class="cards"></a>
-      <a><img src="../../assets/img/placeholderCard.png" alt="placeholder" class="cards"></a>
+      <a><img src="../../assets/img/wheat.png" alt="wheat" class="cards"><span>{{resources.wheat}}</span></a>
+      <a><img src="../../assets/img/sheep.png" alt="sheep" class="cards"><span>{{resources.sheep}}</span></a>
+      <a><img src="../../assets/img/brick.png" alt="brick" class="cards"><span>{{resources.brick}}</span></a>
+      <a><img src="../../assets/img/ore.png" alt="ore" class="cards"><span>{{resources.ore}}</span></a>
+      <a><img src="../../assets/img/wood.png" alt="wood" class="cards"><span>{{resources.wood}}</span></a>
     </div>
+
+    <div class="development-cards">
+      <div *ngFor="let hand of game.players[game.turn].dev">
+      <a><img src="../../assets/img/{{hand.name}}.png" alt="chapel" class="cards"></a>
+    </div>
+    </div>
+
 
   </div>
 
   <div class="player-info">
-    <p>Player Name: <span></span></p>
+    <p>Current Player: <span></span></p>
   </div>

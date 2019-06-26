@@ -7,6 +7,7 @@
   /* background-color: #2fa4ed; */
   /* border: 1px solid black; */
   line-height: 1.3;
+  margin-top: -.85%;
 }
 
 ol.even {
@@ -66,9 +67,6 @@ ol.odd {
   transform: rotate(-60deg);
 }
 
-.dice {
-  padding-left: 9%;
-}
 
 
 /* end base hex */
@@ -234,34 +232,50 @@ ol.odd {
 
 .harbor.two-one::before {
   content: "2:1";
+  font-size: 20px;
+  color: white;
 }
 
 .harbor.three-one::before {
   content: "3:1";
+  font-size: 20px;
+  color: white;
 }
 
 .harbor.any::after {
-  content: "any";
+  content: "ANY";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.wood::after {
-  content: "wood";
+  content: "WOOD";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.ore::after {
-  content: "ore";
+  content: "ORE";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.sheep::after {
-  content: "sheep";
+  content: "SHEEP";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.brick::after {
-  content: "brick";
+  content: "BRICK";
+  font-size: 15px;
+  color: white;
 }
 
 .harbor.wheat::after {
-  content: "wheat";
+  content: "WHEAT";
+  font-size: 15px;
+  color: white;
 }
 
 /* end harbors */
@@ -282,7 +296,7 @@ ol.odd {
   top: 42px;
   left: 18px;
   transform: rotate(90deg);
-  background-color: #ffdead;
+  background-color: #f9e4c6;
 }
 
 .hex .number::after {
@@ -298,9 +312,12 @@ ol.odd {
 }
 
 .hex #robber {
-  opacity: .2;
+  opacity: .4;
   border: 2px dotted;
 }
+/* .hex #robber::after {
+  content: "R";
+} */
 
 .hex .number.two::before {
   content: "2";
@@ -535,25 +552,49 @@ ol.odd {
 
 .cards {
   margin: 0 auto;
-  width: 130px;
-  height: 190px;
+  width: 150px;
 }
 
 .resource-cards {
+  margin-top: -4%;
+  text-align: center;
+}
+
+.development-cards {
   text-align: center;
 }
 
 .build-card {
-  background-color: red;
   float: left;
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 15px;
+  left: 150px;
 }
 
-/* .player-info {
-  float: right;
+.build-card-img {
+  width: 300px;
+  border-radius: 25px;
+}
+
+.player-info {
+  float: left;
   position: absolute;
-  top: 8px;
-  right: 16px;
-} */
+  font-family: 'Roboto Slab', serif;
+  top: 50px;
+  right: 150px;
+  font-size: 30px;
+  /* background-color: #ffdead; */
+  width: 8em;
+  padding: 10px;
+}
+
+.rules {
+  position: absolute;
+  float: right;
+  right: 100px;
+  top: 15px;
+}
+
+.dice {
+  padding-left: 9%;
+}

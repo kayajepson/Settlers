@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GAME } from './../current-game';
+import { Game } from './../game';
 
 @Component({
   selector: 'app-board-grid',
@@ -17,12 +18,20 @@ dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7:
 robber: number;
 settlement: boolean;
 road: boolean;
+resources: {wood: number,
+wheat: number,
+brick: number,
+ore: number,
+sheep: number}
+game: Game;
+
+
   constructor() { }
 
   ngOnInit() {
     this.dictionary =
     {0: "zero", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
-
+    this.game = GAME;
     let rob = 0;
     for(let i = 0; i < 19; i++){
       if(GAME.board[i].resource === "desert"){
@@ -43,9 +52,7 @@ road: boolean;
     this.row1 = GAME.board.slice(0,3);
 
     this.row2 = GAME.board.slice(3,7);
-
     this.row3 = GAME.board.slice(7,12);
-
     this.row4 = GAME.board.slice(12,16);
 
     this.row5 = GAME.board.slice(16);
@@ -53,6 +60,8 @@ road: boolean;
 
     this.settlement = true;
     this.road = false;
+    this.resources = GAME.players[GAME.turn].resources;
+
   }
   build(num: number){
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
@@ -109,3 +118,4 @@ road: boolean;
     }
 
   }
+
