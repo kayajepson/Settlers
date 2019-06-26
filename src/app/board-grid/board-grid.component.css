@@ -616,3 +616,8 @@ ol.odd {
 margin: 5px;
 font-size: 35px;
 }
+
+.dice img{
+  height: 5em;
+  padding: 0.25em;
+}
