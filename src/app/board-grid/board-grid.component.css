@@ -556,7 +556,7 @@ ol.odd {
 }
 
 .resource-cards {
-  margin-top: -4%;
+  margin-top: -1%;
   text-align: center;
 }
 
@@ -565,27 +565,33 @@ ol.odd {
 }
 
 .build-card {
+  text-align: center;
   float: left;
   position: absolute;
-  top: 15px;
+  bottom: 15px;
   left: 150px;
 }
 
 .build-card-img {
-  width: 300px;
   border-radius: 25px;
 }
 
 .player-info {
+  text-align: center;
+  border: 2px solid black;
+  color: black;
+  border-radius: 3px;
   float: left;
   position: absolute;
-  font-family: 'Roboto Slab', serif;
-  top: 50px;
-  right: 150px;
-  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  top: 10px;
+  left: 150px;
+  font-size: 40px;
   /* background-color: #ffdead; */
-  width: 8em;
-  padding: 10px;
+  width: 13em;
+  /* padding: 10px; */
+  opacity: 0.8;
+  background-color: #ffffff3d;
 }
 
 .rules {
@@ -596,5 +602,5 @@ ol.odd {
 }
 
 .dice {
-  padding-left: 9%;
+  opacity: .8;
 }
