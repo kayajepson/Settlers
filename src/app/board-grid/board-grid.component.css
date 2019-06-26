@@ -296,7 +296,7 @@ ol.odd {
   left: 0px;
 }
 
-.hex .number.robber {
+.hex .number #robber {
   opacity: .2;
   border: 2px dotted;
 }
@@ -513,7 +513,8 @@ ol.odd {
 
 .cards {
   margin: 0 auto;
-  width: 200px;
+  width: 130px;
+  height: 190px;
 }
 
 .resource-cards {
