@@ -14,6 +14,11 @@ row4: {resource: string, roll:number}[];
 row5: {resource: string, roll:number}[];
 dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8: string, 9: string, 10: string, 11: string, 12: string };
 robber: number;
+resources: {wood: number,
+wheat: number,
+brick: number,
+ore: number,
+sheep: number}
 
 
   constructor() { }
@@ -39,18 +44,12 @@ robber: number;
   console.log(num.classList);
 
     this.row1 = GAME.board.slice(0,3);
-
-
     this.row2 = GAME.board.slice(3,7);
-
-
     this.row3 = GAME.board.slice(7,12);
-
-
     this.row4 = GAME.board.slice(12,16);
-
-
     this.row5 = GAME.board.slice(16);
+    this.resources = GAME.players[GAME.turn].resources;
+
   }
   build(num: number){
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
@@ -62,4 +61,5 @@ robber: number;
       console.log(GAME);
     }
   }
+
 }
