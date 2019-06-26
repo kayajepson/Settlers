@@ -103,6 +103,10 @@ rolls: number[];
       }
     }
   }
+
+  dummy(){
+    console.log("hi heather");
+}
   buildRoad(roadOne: number, roadTwo: number){
     if(this.road === true){
       if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
@@ -147,5 +151,6 @@ rolls: number[];
         }
       }
     }
+
 
   }
