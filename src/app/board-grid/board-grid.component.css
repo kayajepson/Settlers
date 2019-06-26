@@ -296,7 +296,7 @@ ol.odd {
   left: 0px;
 }
 
-.hex .number #robber {
+#robber {
   opacity: .2;
   border: 2px dotted;
 }

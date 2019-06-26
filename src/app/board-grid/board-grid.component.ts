@@ -22,12 +22,21 @@ robber: number;
     this.dictionary =
     {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
 
-    let rob = GAME.board.filter(function(x){
-      return x.resource === "desert";
-    })
-
-  this.robber = GAME.board.indexOf(rob[0]);
-
+    let rob = 0;
+    for(let i = 0; i < 19; i++){
+      if(GAME.board[i].resource === "desert"){
+        rob = i;
+        break;
+      }
+    }
+    console.log(rob);
+  this.robber = rob;
+  document.querySelector("#h"+(this.robber+1))
+  let robspot = document.querySelector("#h"+(this.robber+1));
+  console.log(robspot);
+  let num = robspot.lastElementChild;
+  num.setAttribute("id","robber");
+  console.log(num.classList);
 
     this.row1 = GAME.board.slice(0,3);
 
