@@ -268,6 +268,7 @@ ol.odd {
 /* ----------------------------------------- */
 /* ----------------------------------------- */
 /* begin numbers */
+
 .hex .number {
   position: absolute;
   font-size: 25px;
@@ -281,7 +282,7 @@ ol.odd {
   top: 42px;
   left: 18px;
   transform: rotate(90deg);
-  background-color: white;
+  background-color: #ffdead;
 }
 
 .hex .number::after {
@@ -503,6 +504,14 @@ ol.odd {
   background-color: #ff0000;
 }
 
+.hex .settlement.white {
+  background-color: white;
+}
+
+.hex .settlement.orange {
+  background-color: orange;
+}
+
 .hex .city.blue {
   background-color: #0000ff;
 }
@@ -520,3 +529,18 @@ ol.odd {
 .resource-cards {
   text-align: center;
 }
+
+.build-card {
+  background-color: red;
+  float: left;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* .player-info {
+  float: right;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+} */
