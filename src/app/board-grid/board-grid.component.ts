@@ -43,6 +43,13 @@ dictionary: {2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8
     console.log("here", GAME)
   }
   build(num: number){
-  //
+    //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
+    console.log(GAME.checkNeighbors(num));
+    if(GAME.checkNeighbors(num) === true){
+      GAME.buildSettlement(num);
+      console.log(GAME.players[GAME.turn].name);
+      document.getElementById("s"+num).classList.add(GAME.players[GAME.turn].name);
+      console.log(GAME);
+    }
   }
 }

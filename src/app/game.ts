@@ -215,74 +215,93 @@ export class Game{
         allBuildings.push(b.position);
       })
     })
-    switch(number){
-      case( number < 3):
-      if(number === 0){
-        return allBuildings.includes(3) || allBuildings.includes(4);
-      }else if(number === 2){
-        return allBuildings.includes(5) || allBuildings.includes(6);
-      }else{
-        return allBuildings.includes(4) || allBuildings.includes(5);
+      if( number < 3){
+        if(number === 0){
+          return (!allBuildings.includes(3) || !allBuildings.includes(4));
+        }else if(number === 2){
+          return !allBuildings.includes(5) || !allBuildings.includes(6);
+        }else{
+          return !allBuildings.includes(4) || !allBuildings.includes(5);
+        }
       }
-      case( number < 7):
-      if(number === 3){
-        return allBuildings.includes(7) || allBuildings.includes(0);
-      }else if(number === 6){
-        return allBuildings.includes(2) || allBuildings.includes(10);
-      }else{
-        return allBuildings.includes(number-4) || allBuildings.includes(number-3) || allBuildings.includes(number+4)
+      if( number < 7){
+        if(number === 3){
+          return !allBuildings.includes(7) || !allBuildings.includes(0);
+        }else if(number === 6){
+          return !allBuildings.includes(2) || !allBuildings.includes(10);
+        }else{
+          return !allBuildings.includes(number-4) || !allBuildings.includes(number-3) || !allBuildings.includes(number+4)
+        }
       }
-      case(number < 11):
-      if(number === 11){
-        return allBuildings.includes(7) || allBuildings.includes(16);
+      if(number < 11){if(number === 11){
+        return !allBuildings.includes(7) || !allBuildings.includes(16);
       }else if(number === 15){
-        return allBuildings.includes(10) || allBuildings.includes(20);
+        return !allBuildings.includes(10) || !allBuildings.includes(20);
       }
-      return allBuildings.includes(number-4) || allBuildings.includes(number+5) || allBuildings.includes(number+4)
-      case(number < 16):
-      return allBuildings.includes(number-5) || allBuildings.includes(number+5) || allBuildings.includes(number+6)
-      case(number < 21):
-      return allBuildings.includes(number-5) || allBuildings.includes(number+5) || allBuildings.includes(number+6)
-      case(number < 27):
-      if(number === 21){
-        return allBuildings.includes(27) || allBuildings.includes(16);
-      }else if(number === 26){
-        return allBuildings.includes(20) || allBuildings.includes(32);
-      }
-      return allBuildings.includes(number-6) || allBuildings.includes(number-5) || allBuildings.includes(number+6);
-      case(number < 33):
-      if(number === 27){
-        return allBuildings.includes(21) || allBuildings.includes(33);
-      }else if(number === 32){
-        return allBuildings.includes(26) || allBuildings.includes(37);
-      }
-      return allBuildings.includes(number-6) || allBuildings.includes(number+5) || allBuildings.includes(number+6);
-      case(number < 38):
-      return allBuildings.includes(number-6) || allBuildings.includes(number-5) || allBuildings.includes(number+6);
-      case(number < 43):
-      if(number === 38){
-        return allBuildings.includes(43) || allBuildings.includes(33);
-      }else if(number === 42){
-        return allBuildings.includes(46) || allBuildings.includes(37);
-      }
-      return allBuildings.includes(number+4) || allBuildings.includes(number-5) || allBuildings.includes(number+5);
-      case(number < 47):
-      return allBuildings.includes(number-4) || allBuildings.includes(number-5) || allBuildings.includes(number+4);
-      case(number < 51):
-      if(number === 47){
-        return allBuildings.includes(43) || allBuildings.includes(51);
-      }else if(number === 46){
-        return allBuildings.includes(41) || allBuildings.includes(53);
-      }
-      return allBuildings.includes(number+4) || allBuildings.includes(number-4) || allBuildings.includes(number+3);
-      case(number < 54):
-      if(number === 51){
-        return allBuildings.includes(47) || allBuildings.includes(48);
-      }else if(number === 53){
-        return allBuildings.includes(49) || allBuildings.includes(50);
-      }
-      return allBuildings.includes(48) || allBuildings.includes(49);
+      return !allBuildings.includes(number-4) || !allBuildings.includes(number+5) || !allBuildings.includes(number+4)
     }
+
+      if(number < 16){
+
+        return !allBuildings.includes(number-5) || !allBuildings.includes(number+5) || !allBuildings.includes(number+6)
+      }
+      if(number < 21){
+
+        return !allBuildings.includes(number-5) || !allBuildings.includes(number+5) || !allBuildings.includes(number+6)
+      }
+      if(number < 27){
+
+        if(number === 21){
+          return !allBuildings.includes(27) || !allBuildings.includes(16);
+        }else if(number === 26){
+          return !allBuildings.includes(20) || !allBuildings.includes(32);
+        }
+        return !allBuildings.includes(number-6) || !allBuildings.includes(number-5) || !allBuildings.includes(number+6);
+      }
+      if(number < 33){
+
+        if(number === 27){
+          return !allBuildings.includes(21) || !allBuildings.includes(33);
+        }else if(number === 32){
+          return !allBuildings.includes(26) || !allBuildings.includes(37);
+        }
+        return !allBuildings.includes(number-6) || !allBuildings.includes(number+5) || !allBuildings.includes(number+6);
+      }
+      if(number < 38){
+
+        return !allBuildings.includes(number-6) || !allBuildings.includes(number-5) || !allBuildings.includes(number+6);
+      }
+      if(number < 43){
+
+        if(number === 38){
+          return !allBuildings.includes(43) || !allBuildings.includes(33);
+        }else if(number === 42){
+          return !allBuildings.includes(46) || !allBuildings.includes(37);
+        }
+        return !allBuildings.includes(number+4) || !allBuildings.includes(number-5) || !allBuildings.includes(number+5);
+      }
+      if(number < 47){
+
+        return !allBuildings.includes(number-4) || !allBuildings.includes(number-5) || !allBuildings.includes(number+4);
+      }
+      if(number < 51){
+
+        if(number === 47){
+          return !allBuildings.includes(43) || !allBuildings.includes(51);
+        }else if(number === 46){
+          return !allBuildings.includes(41) || !allBuildings.includes(53);
+        }
+        return !allBuildings.includes(number+4) || !allBuildings.includes(number-4) || !allBuildings.includes(number+3);
+      }
+      if(number < 54){
+
+        if(number === 51){
+          return !allBuildings.includes(47) || !allBuildings.includes(48);
+        }else if(number === 53){
+          return !allBuildings.includes(49) || !allBuildings.includes(50);
+        }
+        return !allBuildings.includes(48) || !allBuildings.includes(49);
+      }
   }
 
   buildSettlement(number){
@@ -316,12 +335,18 @@ export class Game{
     // });
   }
 
-  if(this.turn === 3) {
-    this.preturn--;
-  }
   if(this.preturn === 1) {
     this.turn--;
+    if(this.turn === 0){
+      this.preturn --;
+    }
   } else {
+    this.turn++;
+  }
+}
+if((this.turn === 3  && this.preturn === 2)|| this.turn === 0 ) {
+  this.preturn--;
+  if(this.turn === 3){
     this.turn++;
   }
 }
