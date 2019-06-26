@@ -80,19 +80,19 @@ ol.odd {
 }
 
 .hex.water {
-  background-color: #186fa5;
+  background-color: #5c86ae;
 }
 
 .hex.desert {
-  background-color: #b695d6;
+  background-color: #ba9e5c;
 }
 
 .hex.sheep {
-  background-color: #70a85e;
+  background-color: #93b248;
 }
 
 .hex.ore {
-  background-color: #515151;
+  background-color: #75707c;
 }
 
 .hex.wheat {
@@ -104,11 +104,11 @@ ol.odd {
 } */
 
 .hex.brick {
-  background-color: #722809;
+  background-color: #97593c;
 }
 
 .hex.wood {
-  background-color: #055624;
+  background-color: #536d35;
 }
 /* .hex.wood:after {
   background-image: url('/../../assets/img/wood.jpg');
@@ -296,7 +296,7 @@ ol.odd {
   left: 0px;
 }
 
-#robber {
+.hex #robber {
   opacity: .2;
   border: 2px dotted;
 }

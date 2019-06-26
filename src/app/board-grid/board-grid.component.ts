@@ -12,7 +12,7 @@ row2: {resource: string, roll:number}[];
 row3: {resource: string, roll:number}[];
 row4: {resource: string, roll:number}[];
 row5: {resource: string, roll:number}[];
-dictionary: {2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8: string, 9: string, 10: string, 11: string, 12: string };
+dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8: string, 9: string, 10: string, 11: string, 12: string };
 robber: number;
 
 
@@ -20,7 +20,7 @@ robber: number;
 
   ngOnInit() {
     this.dictionary =
-    {2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
+    {0: "zero", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
 
     let rob = 0;
     for(let i = 0; i < 19; i++){
