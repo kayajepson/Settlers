@@ -150,6 +150,10 @@ export class Game{
       this.giveResources(rolls[0]+rolls[1]);
     }
     console.log(this);
+    this.turn++;
+    if(this.turn === 4){
+      this.turn = 0;
+    }
     return rolls;
   }
 
@@ -327,20 +331,24 @@ export class Game{
 
   //Eventually take in more info
   preTurn(number) {
+  let that = this;
   if (this.checkNeighbors(number) === true) {
     //let currentPlayer = this.players[this.turn]
     this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
 
     //distribute resources
     if(this.preturn === 1){
-    // resources.forEach(function(resource) {
-    //   this.players[this.turn].resources[resource]++;
-    // });
+    let theBoard = this.adjacents.filter(
+      (x) => x.includes(number))
+      theBoard.forEach(function(x){
+        that.players[that.turn].resources[that.board[that.adjacents.indexOf(x)].resource]++;
+      })
+
   }
 
 
 
-// if((this.turn === 3  && this.preturn === 2)&& this.turn === 0 ) {
+// if((that.turn === 3  && this.preturn === 2)&& this.turn === 0 ) {
 //   this.preturn--;
 //   if(this.turn === 3){
 //     this.turn++;
