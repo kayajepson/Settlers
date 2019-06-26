@@ -90,7 +90,7 @@ ol.odd {
 }
 
 .hex.ore {
-  background-color: #75707c;
+  background-color: #636363;
 }
 
 .hex.wheat {
@@ -518,16 +518,16 @@ ol.odd {
 }
 
 .red{
-  background-color: #ff0000 !important;
+  background-color: #e00000 !important;
 }
 .white{
   background-color: #ffffff !important;
 }
 .blue{
-  background-color: #0000ff !important;
+  background-color: #2020c7 !important;
 }
 .orange{
-  background-color: #F77400 !important;
+  background-color: #db6600 !important;
 }
 
 .hex .settlement.red {
@@ -610,4 +610,9 @@ ol.odd {
 
 .dice {
   opacity: .8;
+}
+
+.resource-num {
+margin: 5px;
+font-size: 35px;
 }

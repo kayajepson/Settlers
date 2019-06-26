@@ -298,11 +298,11 @@
 
 
     <div class="resource-cards">
-      <a(click)="dummy()"><img src="../../assets/img/wheat.png" alt="wheat" class="cards"><span>{{game.players[game.turn].resources.wheat}}</span></a>
-      <a(click)="dummy()"><img src="../../assets/img/sheep.png" alt="sheep" class="cards"><span>{{game.players[game.turn].resources.sheep}}</span></a>
-      <a(click)="dummy()"><img src="../../assets/img/brick.png" alt="brick" class="cards"><span>{{game.players[game.turn].resources.brick}}</span></a>
-      <a(click)="dummy()"><img src="../../assets/img/ore.png" alt="ore" class="cards"><span>{{game.players[game.turn].resources.ore}}</span></a>
-      <a(click)="dummy()"><img src="../../assets/img/wood.png" alt="wood" class="cards"><span>{{game.players[game.turn].resources.wood}}</span></a>
+      <a (click)="dummy()"><img src="../../assets/img/wheat.png" alt="wheat" class="cards"><span class="resource-num">{{game.players[game.turn].resources.wheat}}</span></a>
+      <a (click)="dummy()"><img src="../../assets/img/sheep.png" alt="sheep" class="cards"><span class="resource-num">{{game.players[game.turn].resources.sheep}}</span></a>
+      <a (click)="dummy()"><img src="../../assets/img/brick.png" alt="brick" class="cards"><span class="resource-num">{{game.players[game.turn].resources.brick}}</span></a>
+      <a (click)="dummy()"><img src="../../assets/img/ore.png" alt="ore" class="cards"><span class="resource-num">{{game.players[game.turn].resources.ore}}</span></a>
+      <a (click)="dummy()"><img src="../../assets/img/wood.png" alt="wood" class="cards"><span class="resource-num">{{game.players[game.turn].resources.wood}}</span></a>
     </div>
 
     <div class="development-cards">
@@ -317,6 +317,7 @@
   <div class="player-info">
       <span class="rules"><app-rules></app-rules></span>
     <p>Current Player: {{game.players[game.turn].name | titlecase}}</p>
+    <p>Victory Points: {{game.players[game.turn].vp | titlecase}}</p>
   </div>
 
   <div class="build-card">
