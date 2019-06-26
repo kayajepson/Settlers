@@ -109,6 +109,9 @@ export class Game{
         this.dev.push({
           name: "monopoly", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
         });
+        this.dev.push({
+          name: "chapel", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
+        });
       }
     }
 
