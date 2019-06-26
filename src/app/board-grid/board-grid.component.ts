@@ -56,9 +56,9 @@ robber: number;
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
     console.log(GAME.checkNeighbors(num));
     if(GAME.checkNeighbors(num) === true){
-      GAME.buildSettlement(num);
-      console.log(GAME.players[GAME.turn].name);
       document.getElementById("s"+num).classList.add(GAME.players[GAME.turn].name);
+      console.log(GAME.players[GAME.turn].name);
+      GAME.buildSettlement(num);
       console.log(GAME);
     }
   }
