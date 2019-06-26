@@ -598,3 +598,8 @@ ol.odd {
 .dice {
   padding-left: 9%;
 }
+
+.dice img{
+  height: 5em;
+  padding: 0.25em;
+}

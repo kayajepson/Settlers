@@ -18,13 +18,14 @@ dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7:
 robber: number;
 settlement: boolean;
 road: boolean;
+moveRob: boolean;
 // resources: {wood: number,
 // wheat: number,
 // brick: number,
 // ore: number,
 // sheep: number}[]
 game: Game;
-
+rolls: number[];
 
   constructor() { }
 
@@ -41,6 +42,7 @@ game: Game;
     }
 
     console.log(rob);
+    this.moveRob = false;
   this.robber = rob;
   document.querySelector("#h"+(this.robber+1))
   let robspot = document.querySelector("#h"+(this.robber+1));
@@ -57,11 +59,36 @@ game: Game;
 
     this.row5 = GAME.board.slice(16);
 
-
     this.settlement = true;
     this.road = false;
+    this.rolls = [1,2];
 
   }
+
+  diceRoll(){
+    if(!(this.moveRob || this.settlement || this.road)){
+      this.rolls = GAME.roll();
+      if(this.rolls[0]+this.rolls[1] === 7){
+        this.moveRob = true;
+      }
+    }
+  }
+
+  moveRobert(num) {
+    if(this.moveRob === true) {
+      document.querySelector("#robber").removeAttribute("id");
+      GAME.robert(num-1);
+      this.robber = num-1;
+      document.querySelector("#h"+(this.robber+1))
+      let robspot = document.querySelector("#h"+(this.robber+1));
+      console.log(robspot);
+      let numb = robspot.lastElementChild;
+      numb.setAttribute("id","robber");
+      console.log(numb.classList);
+      this.moveRob = false;
+    }
+  }
+
   build(num: number){
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
     console.log(num);
@@ -111,7 +138,11 @@ game: Game;
           }
           if(GAME.preturn > 0){
             this.settlement = true;
+          }else{
+            this.settlement = false;
+            this.road = false;
           }
+          console.log(this);
         }
         }
       }
