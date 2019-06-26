@@ -1,4 +1,9 @@
 a {
-  color: #FFFFFF;
+  color: #000000;
+  right: 20px;
+  position: absolute;
+  top: 10px;
+  font-size: 18px;
   font-weight: bold;
+  text-decoration: none;
 }

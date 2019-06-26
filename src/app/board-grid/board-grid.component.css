@@ -576,6 +576,19 @@ ol.odd {
   border-radius: 25px;
 }
 
+/* .rules {
+  color: #ffffff;
+  right: 20px;
+  position: absolute;
+  top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+} */
+
+.rules:hover {
+  color: white;
+}
+
 .player-info {
   text-align: center;
   border: 2px solid black;
@@ -594,12 +607,6 @@ ol.odd {
   background-color: #ffffff3d;
 }
 
-.rules {
-  position: absolute;
-  float: right;
-  right: 100px;
-  top: 15px;
-}
 
 .dice {
   opacity: .8;

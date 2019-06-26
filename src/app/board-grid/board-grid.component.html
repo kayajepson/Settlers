@@ -292,9 +292,9 @@
       </ol>
     </div>
 
-    <div class="rules">
+    <!-- <div class="rules">
       <app-rules></app-rules>
-    </div>
+    </div> -->
 
 
     <div class="resource-cards">
@@ -307,7 +307,7 @@
 
     <div class="development-cards">
       <span *ngFor="let hand of game.players[game.turn].dev">
-      <a><img src="../../assets/img/{{hand.name}}.png" alt="chapel" class="cards"></a>
+      <a><img src="../../assets/img/{{hand.name}}.png" alt="{{hand.name}}" class="cards"></a>
     </span>
     </div>
 
@@ -315,7 +315,8 @@
   </div>
 
   <div class="player-info">
-    <p>Current Player: {{game.players[game.turn].name | titlecase}}<span></span></p>
+      <span class="rules"><app-rules></app-rules></span>
+    <p>Current Player: {{game.players[game.turn].name | titlecase}}</p>
   </div>
 
   <div class="build-card">
@@ -332,3 +333,9 @@
 </map>
     <!-- <a><img src="../../assets/img/buildWhite.png" alt="placeholder" class="build-card-img"></a> -->
   </div>
+
+  <!-- <div class="special-cards">
+    <span *ngFor="let hand of game.players[game.turn].dev">
+    <a><img src="../../assets/img/{{hand.name}}.png" alt="{{hand.name}}" class="cards"></a>
+  </span>
+  </div> -->
