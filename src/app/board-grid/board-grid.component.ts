@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GAME } from './../current-game';
+import { Game } from './../game';
 
 @Component({
   selector: 'app-board-grid',
@@ -20,13 +21,14 @@ wheat: number,
 brick: number,
 ore: number,
 sheep: number}
+game: Game;
 
   constructor() { }
 
   ngOnInit() {
     this.dictionary =
     {0: "zero", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
-
+    this.game = GAME;
     let rob = 0;
     for(let i = 0; i < 19; i++){
       if(GAME.board[i].resource === "desert"){
@@ -34,7 +36,7 @@ sheep: number}
         break;
       }
     }
-    
+
     console.log(rob);
   this.robber = rob;
   document.querySelector("#h"+(this.robber+1))
