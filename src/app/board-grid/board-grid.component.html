@@ -25,7 +25,7 @@
           <!-- <div class='harbor-piece br'></div> -->
         </div>
       </li>
-      <li class='hex {{row1[0].resource}}'>
+      <li class='hex {{row1[0].resource}}' id="h1">
         <div class='settlement target tl'(click)="build(3)" id="s3"></div>
         <div class='settlement target t'(click)="build(0)" id="s0"></div>
         <div class='road target tl'></div>
@@ -33,7 +33,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row1[0].roll]}}'></div>
       </li>
-      <li class='hex {{row1[1].resource}}'>
+      <li class='hex {{row1[1].resource}}' id="h2">
         <div class='settlement target tl'(click)="build(4)" id="s4"></div>
         <div class='settlement target t'(click)="build(1)" id="s1"></div>
         <div class='road target tl'></div>
@@ -41,7 +41,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row1[1].roll]}}'></div>
       </li>
-      <li class='hex {{row1[2].resource}}'>
+      <li class='hex {{row1[2].resource}}' id="h3">
         <div class='settlement target tl'(click)="build(5)" id="s5"></div>
         <div class='settlement target t'(click)="build(2)" id="s2"></div>
         <div class='road target tl'></div>
@@ -57,7 +57,7 @@
     <!-- three -->
     <ol class="even">
       <li class='hex water'></li>
-      <li class='hex {{row2[0].resource}}'>
+      <li class='hex {{row2[0].resource}}' id="h4">
         <div class='settlement target tl'(click)="build(11)" id="s11"></div>
         <div class='settlement target t'(click)="build(7)" id="s7"></div>
         <div class='road target tl'></div>
@@ -65,7 +65,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row2[0].roll]}}'></div>
       </li>
-      <li class='hex {{row2[1].resource}}'>
+      <li class='hex {{row2[1].resource}}' id="h5">
         <div class='settlement target tl'></div>
         <div class='settlement target t'></div>
         <div class='road target tl'></div>
@@ -76,7 +76,7 @@
         <div class='settlement target t'(click)="build(8)" id="s8"></div>
 
       </li>
-      <li class='hex {{row2[2].resource}}'>
+      <li class='hex {{row2[2].resource}}' id="h6">
         <div class='settlement target tl'(click)="build(13)" id="s13"></div>
         <div class='settlement target t'(click)="build(9)" id="s9"></div>
         <div class='road target tl'></div>
@@ -84,7 +84,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row2[2].roll]}}'></div>
       </li>
-      <li class='hex {{row2[3].resource}}'>
+      <li class='hex {{row2[3].resource}}' id="h7">
         <div class='settlement target tl'></div>
         <div class='settlement target t'></div>
         <div class='road target tl'></div>
@@ -110,7 +110,7 @@
           <!-- <div class='harbor-piece r'></div> -->
         </div>
       </li>
-      <li class='hex {{row3[0].resource}}'>
+      <li class='hex {{row3[0].resource}}' id="h8">
         <div class='settlement target tl'(click)="build(21)" id="s21"></div>
         <div class='settlement target t'(click)="build(16)" id="s16"></div>
         <div class='road target tl'></div>
@@ -118,7 +118,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row3[0].roll]}}'></div>
       </li>
-      <li class='hex {{row3[1].resource}}'>
+      <li class='hex {{row3[1].resource}}' id="h9">
         <div class='settlement target tl'(click)="build(22)" id="s22"></div>
         <div class='settlement target t'(click)="build(17)" id="s17"></div>
         <div class='road target tl'></div>
@@ -127,7 +127,7 @@
 
         <div class='number {{dictionary[row3[1].roll]}}'></div>
       </li>
-      <li class='hex {{row3[2].resource}}'>
+      <li class='hex {{row3[2].resource}}' id="h10">
         <div class='settlement target tl'(click)="build(23)" id="s23"></div>
         <div class='settlement target t'(click)="build(18)" id="s18"></div>
         <div class='road target tl'></div>
@@ -135,7 +135,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row3[2].roll]}}'></div>
       </li>
-      <li class='hex {{row3[3].resource}}'>
+      <li class='hex {{row3[3].resource}}' id="h11">
         <div class='settlement target tl'(click)="build(24)" id="s24"></div>
         <div class='settlement target t'(click)="build(19)" id="s19"></div>
         <div class='road target tl'></div>
@@ -143,7 +143,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row3[3].roll]}}'></div>
       </li>
-      <li class='hex {{row3[4].resource}}'>
+      <li class='hex {{row3[4].resource}}' id="h12">
         <div class='settlement target tl'(click)="build(25)" id="s25"></div>
         <div class='settlement target t'(click)="build(20)" id="s20"></div>
         <div class='road target tl'></div>
@@ -165,7 +165,7 @@
         <div class='road target tr'></div>
 
       </li>
-      <li class='hex {{row4[0].resource}}'>
+      <li class='hex {{row4[0].resource}}' id="h13">
         <!-- ROAD TARGETS -->
         <div class='settlement target tl'(click)="build(33)" id="s33"></div>
         <div class='settlement target t'(click)="build(28)" id="s28"></div>
@@ -175,7 +175,7 @@
         <div class='road target tl'></div>
         <div class='number {{dictionary[row4[0].roll]}}'></div>
       </li>
-      <li class='hex {{row4[1].resource}}'>
+      <li class='hex {{row4[1].resource}}' id="h14">
         <div class='settlement target tl'(click)="build(34)" id="s34"></div>
         <div class='settlement target t'(click)="build(29)" id="s29"></div>
         <div class='road target tl'></div>
@@ -183,7 +183,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row4[1].roll]}}'></div>
       </li>
-      <li class='hex {{row4[2].resource}}'>
+      <li class='hex {{row4[2].resource}}' id="h15">
         <div class='settlement target tl'(click)="build(35)" id="s35"></div>
         <div class='settlement target t'(click)="build(30)" id="s30"></div>
         <div class='road target tl'></div>
@@ -193,20 +193,18 @@
         <!-- <div class='settlement target t target red'></div> -->
         <div class='number {{dictionary[row4[2].roll]}}'></div>
       </li>
-      <li class='hex {{row4[3].resource}}'>
+      <li class='hex {{row4[3].resource}}' id="h16">
         <div class='road target tl'></div>
         <div class='road target l'></div>
         <div class='settlement target tl'(click)="build(36)" id="s36"></div>
         <div class='settlement target t'(click)="build(31)" id="s31"></div>
         <div class='road target tr'></div>
-
         <div class='number {{dictionary[row4[3].roll]}}'></div>
         <!-- <div class='city t blue'></div> -->
 
       </li>
 
       <li class='hex water'>
-
         <div class='settlement target tl'(click)="build(37)" id="s37"></div>
         <div class='road target l'></div>
         <div class='road target tl'></div>
@@ -228,7 +226,7 @@
           <!-- <div class='harbor-piece tr'></div> -->
         </div>
       </li>
-      <li class='hex {{row5[0].resource}}'>
+      <li class='hex {{row5[0].resource}}' id="h17">
         <div class='settlement target tl'(click)="build(43)" id="s43"></div>
         <div class='settlement target t'(click)="build(39)" id="s39"></div>
         <div class='road target tl'></div>
@@ -237,7 +235,7 @@
         <div class='number {{dictionary[row5[0].roll]}}'></div>
       </li>
 
-      <li class='hex {{row5[1].resource}}'>
+      <li class='hex {{row5[1].resource}}' id="h18">
         <div class='settlement target tl'(click)="build(44)" id="s44"></div>
         <div class='settlement target t'(click)="build(40)" id="s40"></div>
         <div class='road target tl'></div>
@@ -245,7 +243,7 @@
         <div class='road target tr'></div>
         <div class='number {{dictionary[row5[1].roll]}}'></div>
       </li>
-      <li class='hex {{row5[2].resource}}'>
+      <li class='hex {{row5[2].resource}}' id="h19">
         <div class='settlement target tl'(click)="build(45)" id="s45"></div>
         <div class='settlement target t'(click)="build(41)" id="s41"></div>
         <div class='road target tl'></div>
