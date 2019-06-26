@@ -6,6 +6,7 @@ import { GAME } from './../current-game';
   templateUrl: './board-grid.component.html',
   styleUrls: ['./board-grid.component.css']
 })
+
 export class BoardGridComponent implements OnInit {
 row1: {resource: string, roll:number}[];
 row2: {resource: string, roll:number}[];
@@ -20,7 +21,6 @@ brick: number,
 ore: number,
 sheep: number}
 
-
   constructor() { }
 
   ngOnInit() {
@@ -34,6 +34,7 @@ sheep: number}
         break;
       }
     }
+    
     console.log(rob);
   this.robber = rob;
   document.querySelector("#h"+(this.robber+1))
@@ -44,20 +45,22 @@ sheep: number}
   console.log(num.classList);
 
     this.row1 = GAME.board.slice(0,3);
+
     this.row2 = GAME.board.slice(3,7);
     this.row3 = GAME.board.slice(7,12);
     this.row4 = GAME.board.slice(12,16);
+
     this.row5 = GAME.board.slice(16);
     this.resources = GAME.players[GAME.turn].resources;
 
   }
   build(num: number){
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
-    console.log(GAME.checkNeighbors(num));
+    console.log(num);
     if(GAME.checkNeighbors(num) === true){
-      GAME.buildSettlement(num);
-      console.log(GAME.players[GAME.turn].name);
       document.getElementById("s"+num).classList.add(GAME.players[GAME.turn].name);
+      console.log(GAME.players[GAME.turn].name);
+      GAME.buildSettlement(num);
       console.log(GAME);
     }
   }
