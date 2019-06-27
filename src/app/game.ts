@@ -331,9 +331,10 @@ export class Game{
       if(this.players[this.turn].resources.wood >= 1 && this.players[this.turn].resources.wheat >=1 && this.players[this.turn].resources.brick >=1 && this.players[this.turn].resources.sheep >=1 ){
         this.players[this.turn].build.push({name: 'settlement', position: number, resources: []});
         let keys = Object.keys(this.players[this.turn].resources);
+        let that = this;
         keys.forEach(function(k){
           if(k != 'ore'){
-            this.players[this.turn].resources[k]--;
+            that.players[that.turn].resources[k]--;
           }
         })
       }
