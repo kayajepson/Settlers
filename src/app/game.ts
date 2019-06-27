@@ -94,11 +94,26 @@ export class Game{
           name: "knight", effect: "Move the robber. Steal 1 resource card from the owner of an adjacent settlement or city."
         });
       }
-      for(let i = 0; i < 5; i++) {
+
         this.dev.push({
           name: "victory", effect: "1 victory point."
         });
-      }
+        this.dev.push({
+          name: "greathall", effect: "1 victory point."
+        });
+        this.dev.push({
+          name: "market", effect: "1 victory point."
+        });
+        this.dev.push({
+          name: "library", effect: "1 victory point."
+        });
+        this.dev.push({
+          name: "chapel", effect: "1 victory point."
+        });
+        this.dev.push({
+          name: "university", effect: "1 victory point."
+        });
+
       for(let i = 0; i < 2; i++) {
         this.dev.push({
           name: "road building", effect: "Place 2 new roads as if you had just built them."
@@ -108,9 +123,6 @@ export class Game{
         });
         this.dev.push({
           name: "monopoly", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
-        });
-        this.dev.push({
-          name: "chapel", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
         });
       }
     }
