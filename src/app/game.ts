@@ -96,10 +96,7 @@ export class Game{
       }
 
         this.dev.push({
-          name: "victory", effect: "1 victory point."
-        });
-        this.dev.push({
-          name: "greathall", effect: "1 victory point."
+          name: "greatHall", effect: "1 victory point."
         });
         this.dev.push({
           name: "market", effect: "1 victory point."
@@ -116,10 +113,10 @@ export class Game{
 
       for(let i = 0; i < 2; i++) {
         this.dev.push({
-          name: "road building", effect: "Place 2 new roads as if you had just built them."
+          name: "roadBuilding", effect: "Place 2 new roads as if you had just built them."
         });
         this.dev.push({
-          name: "year of plenty", effect: "Take any 2 resources from the bank. Add them to your hand. They can be 2 of the same resource or 2 different resources."
+          name: "yearOfPlenty", effect: "Take any 2 resources from the bank. Add them to your hand. They can be 2 of the same resource or 2 different resources."
         });
         this.dev.push({
           name: "monopoly", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
@@ -128,11 +125,12 @@ export class Game{
     }
 
     getDev() {
-      if(this.dev[0].name === "victory") {
-        this.dev.pop();
+      console.log(this.dev[0].name);
+      if(this.dev[0].name === "greatHall" || this.dev[0].name === "market" || this.dev[0].name === "library"  || this.dev[0].name === "chapel" || this.dev[0].name === "university") {
+        this.players[this.turn].dev.push(this.dev.shift());
         this.players[this.turn].vp++;
       } else {
-        this.players[this.turn].dev.push(this.dev.pop());
+        this.players[this.turn].dev.push(this.dev.shift());
       }
     }
 
