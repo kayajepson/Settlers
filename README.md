@@ -2,6 +2,8 @@
 This is a group project created by Kaya Jepson, Heather Zurek, Jared Farkas, Liz Kelley, and Neil Bateman.
 Settlers is a web version of the famous Settlers of Catan, a strategy board game.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+[catan image] (/img/catan.png)
+
 
 ## Setup/Installation
 * Project hosted on: firebase bla bla
