@@ -297,7 +297,7 @@ getDev(){
           if(GAME.preturn > 0){
             this.settlement = true;
           }else{
-            if(this.roadBuilding === 0){
+            if(this.roadBuilding <= 0){
               this.road = false;
 
             }
