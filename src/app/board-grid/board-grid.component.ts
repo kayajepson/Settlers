@@ -148,8 +148,6 @@ rolls: number[];
     }
   }
 
-  dummy(){
-}
 
 select(resource){
   this.selResource = resource;
@@ -208,6 +206,8 @@ select(resource){
 // victory(){
 //
 // }
+
+
   buildARoad(){
     if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
       this.road = true;
