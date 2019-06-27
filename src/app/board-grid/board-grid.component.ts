@@ -22,6 +22,8 @@ road: boolean;
 moveRob: boolean;
 selResource: string;
 roadBuilding: number;
+largestArmy: number;
+mostKnights: number;
 // resources: {wood: number,
 // wheat: number,
 // brick: number,
@@ -33,6 +35,8 @@ rolls: number[];
   constructor() { }
 
   ngOnInit() {
+    this.largestArmy = 2;
+    this.mostKnights = -1;
     this.roadBuilding = 0;
     this.selResource = "";
     this.city = false;
@@ -159,6 +163,12 @@ select(resource){
     if(card === 'knight'){
       this.moveRob = true;
       GAME.players[GAME.turn].army++;
+      if(GAME.players[GAME.turn].army > this.largestArmy){
+        this.largestArmy++;
+        GAME.players[this.mostKnights].vp -= 2;
+        this.mostKnights = GAME.turn;
+        GAME.players[GAME.turn].vp+=2;
+      }
       const slicer = GAME.players[GAME.turn].dev.filter((x)=> x.name === "knight");
       GAME.players[GAME.turn].dev = GAME.players[GAME.turn].dev.slice(0,GAME.players[GAME.turn].dev.indexOf(slicer[0])).concat(GAME.players[GAME.turn].dev.slice(GAME.players[GAME.turn].dev.indexOf(slicer[0])+1));
     }
