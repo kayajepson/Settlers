@@ -17,6 +17,7 @@ row5: {resource: string, roll:number}[];
 dictionary: {0: string,2: string, 3: string, 4: string, 5: string, 6: string, 7: string, 8: string, 9: string, 10: string, 11: string, 12: string };
 robber: number;
 settlement: boolean;
+city: boolean;
 road: boolean;
 moveRob: boolean;
 selResource: string;
@@ -32,6 +33,7 @@ rolls: number[];
 
   ngOnInit() {
     this.selResource = "";
+    this.city = false;
     this.dictionary =
     {0: "zero", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
     this.game = GAME;
@@ -127,6 +129,10 @@ rolls: number[];
       }
       GAME.players[GAME.turn].vp++;
     }
+    console.log(this.city);
+    if(this.city === true){
+      this.buildCity(num);
+    }
   }
 
   dummy(){
@@ -163,6 +169,28 @@ select(resource){
     if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
       this.road = true;
     }
+}
+
+buildACity(){
+  if((GAME.players[GAME.turn].resources.ore >= 3 && GAME.players[GAME.turn].resources.wheat >= 2)){
+    this.city = true;
+  }
+  console.log(this.city);
+}
+
+buildCity(location){
+  if(this.city === true){
+    if(document.querySelector("#s"+location).classList.contains(GAME.players[GAME.turn].name) === true){
+      document.querySelector("#s"+location).classList.add("city");
+      document.querySelector("#s"+location).classList.remove("settlement");
+      GAME.players[GAME.turn].resources.ore -= 3;
+      GAME.players[GAME.turn].resources.wheat -= 2;
+      GAME.players[GAME.turn].build.push({name: 'settlement', position: location, resources: []})
+      this.city = false;
+      GAME.players[GAME.turn].vp++;
+    }
+  }
+
 }
   buildRoad(roadOne: number, roadTwo: number){
     if(this.road === true){
