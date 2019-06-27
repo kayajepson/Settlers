@@ -31,7 +31,6 @@
         <div class='road target tl r3 r0'(click)="buildRoad(0,3)"></div>
         <div class='road target l r3 r7'(click)="buildRoad(7,3)"></div>
         <div class='road target tr r0 r4'(click)="buildRoad(0,4)"></div>
-
         <div class='number {{dictionary[row1[0].roll]}}'></div>
       </li>
       <li class='hex {{row1[1].resource}}' (click)='moveRobert(2)' id="h2">
@@ -53,7 +52,6 @@
       <li class='hex water'>
         <div class='settlement target tl'(click)="build(6)" id="s6"></div>
         <div class='road target l r6 r10'(click)="buildRoad(6,10)"></div>
-
       </li>
     </ol>
     <!-- three -->
@@ -71,10 +69,9 @@
         <div class='road target tl r12 r8'(click)="buildRoad(12,8)"></div>
         <div class='road target l r12 r17'(click)="buildRoad(12,17)"></div>
         <div class='road target tr r8 r13'(click)="buildRoad(8,13)"></div>
-        <div class='number {{dictionary[row2[1].roll]}}'></div>
         <div class='settlement target tl'(click)="build(12)" id="s12"></div>
         <div class='settlement target t'(click)="build(8)" id="s8"></div>
-
+        <div class='number {{dictionary[row2[1].roll]}}'></div>
       </li>
       <li class='hex {{row2[2].resource}}' (click)='moveRobert(6)'id="h6">
         <div class='settlement target tl'(click)="build(13)" id="s13"></div>
@@ -90,9 +87,9 @@
         <div class='road target tl r14 r10'(click)="buildRoad(14,10)"></div>
         <div class='road target l r14 r19'(click)="buildRoad(14,19)"></div>
         <div class='road target tr r10 r15'(click)="buildRoad(10,15)"></div>
-        <div class='number {{dictionary[row2[3].roll]}}'></div>
         <div class='settlement target tl'(click)="build(14)" id="s14"></div>
         <div class='settlement target t'(click)="build(10)" id="s10"></div>
+        <div class='number {{dictionary[row2[3].roll]}}'></div>
       </li>
 
       <li class='hex water'>

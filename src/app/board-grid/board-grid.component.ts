@@ -163,7 +163,9 @@ select(resource){
       GAME.players[GAME.turn].army++;
       if(GAME.players[GAME.turn].army > this.largestArmy){
         this.largestArmy++;
-        GAME.players[this.mostKnights].vp -= 2;
+        if(this.mostKnights > 0){
+          GAME.players[this.mostKnights].vp -= 2;
+        }
         this.mostKnights = GAME.turn;
         GAME.players[GAME.turn].vp+=2;
       }
