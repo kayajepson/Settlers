@@ -104,6 +104,27 @@ rolls: number[];
       if(GAME.preturn > 0){
         this.road = true;
       }
+      if (num === 4 || num === 1) {
+        GAME.players[GAME.turn].dev.push({name: "three-one-any", effect: ""})
+      } else if (num === 2 || num === 6) {
+        GAME.players[GAME.turn].dev.push({name: "three-one-any", effect: ""})
+      } else if (num === 15 || num === 20) {
+        GAME.players[GAME.turn].dev.push({name: "two-one-brick", effect: ""})
+      } else if (num === 15 || num === 20) {
+        GAME.players[GAME.turn].dev.push({name: "two-one-brick", effect: ""})
+      } else if (num === 37 || num === 42) {
+        GAME.players[GAME.turn].dev.push({name: "two-one-wood", effect: ""})
+      } else if (num === 50 || num === 53) {
+        GAME.players[GAME.turn].dev.push({name: "three-one-any", effect: ""})
+      } else if (num === 48 || num === 52) {
+        GAME.players[GAME.turn].dev.push({name: "two-one-wheat", effect: ""})
+      } else if (num === 38 || num === 43) {
+        GAME.players[GAME.turn].dev.push({name: "two-one-ore", effect: ""})
+      } else if (num === 21 || num === 27) {
+        GAME.players[GAME.turn].dev.push({name: "three-one-any", effect: ""})
+      } else if (num === 11 || num === 7) {
+        GAME.players[GAME.turn].dev.push({name: "two-one-sheep", effect: ""})
+      }
       GAME.players[GAME.turn].vp++;
     }
   }

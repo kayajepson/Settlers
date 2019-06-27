@@ -1,5 +1,5 @@
-<div class="mainContent">
 
+<div class="mainContent">
   <div class="container">
     <!-- one -->
     <ol class="even">
@@ -297,6 +297,7 @@
     </div> -->
 
 
+
     <div class="resource-cards">
       <a (click)="select('wheat')"><img [ngClass]="{glow : selResource ==='wheat'}" src="../../assets/img/wheat.png" alt="wheat" class="cards"><span class="resource-num">{{game.players[game.turn].resources.wheat}}</span></a>
       <a (click)="select('sheep')"><img [ngClass]="{glow : selResource ==='sheep'}" src="../../assets/img/sheep.png" alt="sheep" class="cards"><span class="resource-num">{{game.players[game.turn].resources.sheep}}</span></a>
@@ -312,6 +313,11 @@
     </div>
 
 
+  </div>
+
+  <div class="deck-backs">
+    <img src="../../assets/img/back-dev.png" alt="back dev card" class="cards">
+    <img src="../../assets/img/back-resource.png" alt="back resource card" class="cards">
   </div>
 
   <div class="player-info">
