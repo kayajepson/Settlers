@@ -19,6 +19,7 @@ robber: number;
 settlement: boolean;
 road: boolean;
 moveRob: boolean;
+selResource: string;
 // resources: {wood: number,
 // wheat: number,
 // brick: number,
@@ -30,6 +31,7 @@ rolls: number[];
   constructor() { }
 
   ngOnInit() {
+    this.selResource = "";
     this.dictionary =
     {0: "zero", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
     this.game = GAME;
@@ -71,6 +73,7 @@ rolls: number[];
       if(this.rolls[0]+this.rolls[1] === 7){
         this.moveRob = true;
       }
+      this.selResource = "";
     }
   }
 
@@ -122,11 +125,44 @@ rolls: number[];
       } else if (num === 11 || num === 7) {
         GAME.players[GAME.turn].dev.push({name: "two-one-sheep", effect: ""})
       }
+      GAME.players[GAME.turn].vp++;
     }
   }
 
   dummy(){
-    console.log("hi heather");
+}
+
+select(resource){
+  this.selResource = resource;
+}
+
+  devCard(card){
+    console.log(card);
+    if(card === 'monopoly'){
+
+      for(let i = 0; i < 4; i++){
+        if(i !== GAME.turn){
+          GAME.players[GAME.turn].resources[this.selResource] += GAME.players[i].resources[this.selResource];
+          GAME.players[i].resources[this.selResource] = 0;
+        }
+      }
+    }
+    console.log(GAME);
+  }
+
+
+// knight(){
+//
+// }
+//
+//
+// victory(){
+//
+// }
+  buildARoad(){
+    if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
+      this.road = true;
+    }
 }
   buildRoad(roadOne: number, roadTwo: number){
     if(this.road === true){
@@ -154,7 +190,7 @@ rolls: number[];
               GAME.preturn --;
               GAME.turn = 0;
             }
-          } else {
+          } else if(GAME.preturn === 2){
             GAME.turn++;
           }
           if(GAME.turn === 4 && GAME.preturn === 2){
@@ -172,6 +208,7 @@ rolls: number[];
         }
       }
     }
+
 
 
   }
