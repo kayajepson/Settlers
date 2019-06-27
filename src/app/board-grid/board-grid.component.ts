@@ -21,6 +21,7 @@ city: boolean;
 road: boolean;
 moveRob: boolean;
 selResource: string;
+roadBuilding: number;
 // resources: {wood: number,
 // wheat: number,
 // brick: number,
@@ -32,6 +33,7 @@ rolls: number[];
   constructor() { }
 
   ngOnInit() {
+    this.roadBuilding = 0;
     this.selResource = "";
     this.city = false;
     this.dictionary =
@@ -143,8 +145,13 @@ select(resource){
 }
 
   devCard(card){
-    console.log(card);
-    if(card === 'monopoly'){
+    if(card === 'knight'){
+      this.moveRob = true;
+      GAME.players[GAME.turn].army++;
+      const slicer = GAME.players[GAME.turn].dev.filter((x)=> x.name === "knight");
+      GAME.players[GAME.turn].dev = GAME.players[GAME.turn].dev.slice(0,GAME.players[GAME.turn].dev.indexOf(slicer[0])).concat(GAME.players[GAME.turn].dev.slice(GAME.players[GAME.turn].dev.indexOf(slicer[0])+1));
+    }
+    if(card === 'monopoly' && this.selResource != ""){
 
       for(let i = 0; i < 4; i++){
         if(i !== GAME.turn){
@@ -152,6 +159,31 @@ select(resource){
           GAME.players[i].resources[this.selResource] = 0;
         }
       }
+      GAME.dev.push({
+        name: "monopoly", effect: "When you play this card, announce 1 type of resource. All other players must give you all their resource cards of that type."
+      })
+      const slicer = GAME.players[GAME.turn].dev.filter((x)=> x.name === "monopoly");
+      GAME.players[GAME.turn].dev = GAME.players[GAME.turn].dev.slice(0,GAME.players[GAME.turn].dev.indexOf(slicer[0])).concat(GAME.players[GAME.turn].dev.slice(GAME.players[GAME.turn].dev.indexOf(slicer[0])+1));
+    }
+    if(card === 'yearOfPlenty' && this.selResource != ""){
+          GAME.players[GAME.turn].resources[this.selResource] += 2;
+
+      GAME.dev.push({
+        name: "yearOfPlenty", effect: ""
+      })
+      const slicer = GAME.players[GAME.turn].dev.filter((x)=> x.name === "yearOfPlenty");
+      GAME.players[GAME.turn].dev = GAME.players[GAME.turn].dev.slice(0,GAME.players[GAME.turn].dev.indexOf(slicer[0])).concat(GAME.players[GAME.turn].dev.slice(GAME.players[GAME.turn].dev.indexOf(slicer[0])+1));
+    }
+    if(card === "roadBuilding"){
+      this.road = true;
+      this.roadBuilding = 1;
+      GAME.dev.push({
+        name: "roadBuilding", effect: ""
+      })
+      GAME.players[GAME.turn].resources.wood+=2;
+      GAME.players[GAME.turn].resources.brick+=2;
+      const slicer = GAME.players[GAME.turn].dev.filter((x)=> x.name === "roadBuilding");
+      GAME.players[GAME.turn].dev = GAME.players[GAME.turn].dev.slice(0,GAME.players[GAME.turn].dev.indexOf(slicer[0])).concat(GAME.players[GAME.turn].dev.slice(GAME.players[GAME.turn].dev.indexOf(slicer[0])+1));
     }
     console.log(GAME);
   }
@@ -192,6 +224,15 @@ buildCity(location){
   }
 
 }
+
+getDev(){
+  if((GAME.players[GAME.turn].resources.sheep > 0 && GAME.players[GAME.turn].resources.wheat > 0 && GAME.players[GAME.turn].resources.ore > 0)){
+    GAME.getDev();
+    GAME.players[GAME.turn].resources.ore--;
+    GAME.players[GAME.turn].resources.wheat--;
+    GAME.players[GAME.turn].resources.sheep--;
+  }
+}
   buildRoad(roadOne: number, roadTwo: number){
     if(this.road === true){
       if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
@@ -228,8 +269,12 @@ buildCity(location){
           if(GAME.preturn > 0){
             this.settlement = true;
           }else{
+            if(this.roadBuilding === 0){
+              this.road = false;
+
+            }
             this.settlement = false;
-            this.road = false;
+            this.roadBuilding--;
           }
           console.log(this);
         }
