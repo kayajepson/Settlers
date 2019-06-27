@@ -152,8 +152,6 @@ rolls: number[];
     }
   }
 
-  dummy(){
-}
 
 select(resource){
   this.selResource = resource;
@@ -165,7 +163,9 @@ select(resource){
       GAME.players[GAME.turn].army++;
       if(GAME.players[GAME.turn].army > this.largestArmy){
         this.largestArmy++;
-        GAME.players[this.mostKnights].vp -= 2;
+        if(this.mostKnights > 0){
+          GAME.players[this.mostKnights].vp -= 2;
+        }
         this.mostKnights = GAME.turn;
         GAME.players[GAME.turn].vp+=2;
       }
@@ -218,6 +218,8 @@ select(resource){
 // victory(){
 //
 // }
+
+
   buildARoad(){
     if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
       this.road = true;

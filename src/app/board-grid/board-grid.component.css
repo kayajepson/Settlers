@@ -576,15 +576,32 @@ ol.odd {
   text-align: center;
   position: absolute;
   float: right;
-  opacity: 0.5;
+  /* opacity: 0.5; */
   position: absolute;
   bottom: 250px;
   right: 150px;
   width: 20em;
 }
-.special {
+/* .special {
   width: 290px;
   border-radius: 25px;
+} */
+.special-long-road {
+  width: 290px;
+  border-radius: 25px;
+  opacity: 0.5;
+}
+
+.special-large-army {
+  width: 290px;
+  border-radius: 25px;
+  opacity: 0.5;
+}
+
+.off {
+  width: 290px;
+  border-radius: 25px;
+  opacity: 1;
 }
 
 .build-card-img {
