@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ## Setup/Installation
-* Project hosted on: firebase bla bla
-* To download and run from local device: git clone https://github.com/j-farkas/Settlers/, and from project directory run npm install. 
-* Run `ng serve` for a dev server. 
+* Project hosted on: https://settlers-ofcatan.firebaseapp.com/ _best viewed at 2560 x 1440_
+* To download and run from local device: git clone https://github.com/j-farkas/Settlers/, and from project directory run npm install.
+* Run `ng serve` for a dev server.
 * Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
