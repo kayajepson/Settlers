@@ -597,7 +597,7 @@ ol.odd {
   float: left;
   position: absolute;
   font-family: 'Roboto', sans-serif;
-  top: 10px;
+  top: 15px;
   left: 150px;
   font-size: 40px;
   /* background-color: #ffdead; */
@@ -607,6 +607,14 @@ ol.odd {
   background-color: #ffffff3d;
 }
 
+.deck-backs {
+  text-align: center;
+  float: right;
+  position: absolute;
+  top: 15px;
+  right: 150px;
+  width: 20em;
+}
 
 .dice {
   opacity: .8;
