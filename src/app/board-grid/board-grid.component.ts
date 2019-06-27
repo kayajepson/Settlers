@@ -100,6 +100,16 @@ rolls: number[];
     //document.getElementById("s"+num).setAttribute("class",GAME.players[GAME.turn].name)
     console.log(num);
     if(GAME.checkNeighbors(num) === true && this.settlement === true){
+      let adjRoad = false;
+      let adjRoads = document.getElementsByClassName("r"+num);
+
+      for(let i = 0; i< adjRoads.length;i++){
+        console.log((adjRoads[i]).classList);
+        if(adjRoads[i].classList.contains(GAME.players[GAME.turn].name) === true){
+          adjRoad = true;
+        }
+      }
+      if(GAME.preturn > 0 || adjRoad === true){
       document.getElementById("s"+num).classList.add(GAME.players[GAME.turn].name);
       console.log(GAME.players[GAME.turn].name);
       GAME.buildSettlement(num);
@@ -131,6 +141,7 @@ rolls: number[];
       }
       GAME.players[GAME.turn].vp++;
     }
+  }
     console.log(this.city);
     if(this.city === true){
       this.buildCity(num);
@@ -201,6 +212,11 @@ select(resource){
     if((GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.brick > 0)){
       this.road = true;
     }
+}
+buildASettlement(){
+  if((GAME.players[GAME.turn].resources.brick > 0 && GAME.players[GAME.turn].resources.wood > 0 && GAME.players[GAME.turn].resources.wheat > 0 && GAME.players[GAME.turn].resources.sheep > 0)){
+    this.settlement = true;
+  }
 }
 
 buildACity(){
